@@ -1107,5 +1107,50 @@
     "implementation_origin": "CODEX_ADAPTED",
     "implementation_role": "教程作者",
     "note": ""
+  },
+  {
+    "id": "sc01",
+    "number": 18,
+    "display_id": "SC01",
+    "title": "单细胞 UMAP 大群轮廓与亚群标签",
+    "description": "大群虚线轮廓、亚群颜色与两级标签，保留单细胞结构。",
+    "category_id": "single-cell",
+    "category": "单细胞转录组",
+    "figure": "Fig. 1B · 教程引述局部图",
+    "original_file": "paper/tutorials/sc01/高分杂志同款单细胞umap加圈：升级版本/images/img_001.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "citation": {
+      "title": "Spatiotemporal single-cell roadmap of human skin wound healing",
+      "journal": "Cell Stem Cell",
+      "doi": "10.1016/j.stem.2024.11.013",
+      "url": "https://doi.org/10.1016/j.stem.2024.11.013",
+      "published_online": "2024-12-26",
+      "published_print": "2025-03-06",
+      "pmid": "39729995",
+      "metadata_sources": [
+        "https://pubmed.ncbi.nlm.nih.gov/39729995/",
+        "https://api.crossref.org/works/10.1016/j.stem.2024.11.013",
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39729995%20AND%20SRC:MED&format=json&resultType=core"
+      ],
+      "license_records": [
+        {
+          "url": "https://creativecommons.org/licenses/by/4.0/",
+          "source": "publisher PDF and Crossref VOR record"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "高分杂志同款单细胞umap加圈：升级版本",
+      "url": "https://mp.weixin.qq.com/s/npmNC0xF8juoxc_xoo6CiA",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者；ggunchull 软件作者，非论文作者绘图代码",
+    "note": "MCP 改编的是生信技能树教程的 ggunchull 与 tidydr 绘图代码；原论文 Figure 1.1 脚本已另存，其基础 UMAP 使用 Seurat DimPlot，不把教程加圈代码冒称论文作者代码。MCP 示例是合成坐标，不能代表论文中的细胞。",
+    "image": "assets/originals/sc01.png",
+    "example": "assets/examples/sc01.png",
+    "image_sha256": "fbf809d924e8e4da13439949a475cd65d1d26be0b8cbf0374571ed76fd43410c",
+    "image_changes": "none; byte-identical copy of archived tutorial image"
   }
 ]
