@@ -1,0 +1,1077 @@
+[
+  {
+    "id": "m01",
+    "number": 1,
+    "title": "分组富集条形图",
+    "description": "通路、显著性与关键基因，同一张图里读懂。",
+    "figure": "面板 d · 教程引述局部图",
+    "image": "assets/originals/m01.png",
+    "example": "assets/examples/m01.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m01/images/000.png",
+    "image_sha256": "80c78fde9df52546021c0868be74706f9e6286f11cafe1f69957c40d304ad770",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "CHIT1-positive microglia drive motor neuron ageing in the primate spinal cord",
+      "journal": "Nature",
+      "doi": "10.1038/s41586-023-06783-1",
+      "url": "https://doi.org/10.1038/s41586-023-06783-1",
+      "published_online": "2023-10-31",
+      "published_print": "2023-12-21",
+      "pmid": "37907096",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1038/s41586-023-06783-1",
+        "https://europepmc.org/article/MED/37907096"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2023,
+                10,
+                31
+              ]
+            ],
+            "date-time": "2023-10-31T00:00:00Z",
+            "timestamp": 1698710400000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2023,
+                10,
+                31
+              ]
+            ],
+            "date-time": "2023-10-31T00:00:00Z",
+            "timestamp": 1698710400000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "Nature单细胞富集分析条形图复现",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzUzMTEwODk0Ng==&mid=2247520754&idx=1&sn=9898733681986811c40c4a6dcc1a9b23&scene=21#wechat_redirect",
+      "author": "生信菜鸟团"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m02",
+    "number": 2,
+    "title": "渐变富集条形图",
+    "description": "用渐变与条内标签，突出富集结果的层次。",
+    "figure": "Fig. 4A",
+    "image": "assets/originals/m02.png",
+    "example": "assets/examples/m02.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m02/images/003.png",
+    "image_sha256": "cacf827722d6d41c1c123d9cb5961a05589c57bdfeb7688a626b5459d016e3b3",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Multimodal spatial-omics reveal co-evolution of alveolar progenitors and proinflammatory niches in progression of lung precursor lesions",
+      "journal": "Cancer Cell",
+      "doi": "10.1016/j.ccell.2025.10.004",
+      "url": "https://doi.org/10.1016/j.ccell.2025.10.004",
+      "published_online": "2025-11-06",
+      "published_print": "2026-02",
+      "pmid": "41202811",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1016/j.ccell.2025.10.004",
+        "https://europepmc.org/article/MED/41202811"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2026-02-01T00:00:00Z",
+            "timestamp": 1769904000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2026-02-01T00:00:00Z",
+            "timestamp": 1769904000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                10,
+                16
+              ]
+            ],
+            "date-time": "2025-10-16T00:00:00Z",
+            "timestamp": 1760572800000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "同款高分杂志的富集分析结果展示：变体条形图绘制",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247549542&idx=1&sn=c5507ded92ef3a30fd93fca6056354c9&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m03",
+    "number": 3,
+    "title": "聚类树与富集条形图",
+    "description": "把通路的相似性与富集强度放在一起。",
+    "figure": "Fig. 4C",
+    "image": "assets/originals/m03.png",
+    "example": "assets/examples/m03.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m03/images/000.png",
+    "image_sha256": "32f13eee5e62a4f2886798a9eaf927ed3a759509cb9e6c0feab22af87076784b",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Defining the KRAS- and ERK-dependent transcriptome in KRAS-mutant cancers",
+      "journal": "Science",
+      "doi": "10.1126/science.adk0775",
+      "url": "https://doi.org/10.1126/science.adk0775",
+      "published_online": "2024-06-07",
+      "published_print": "2024-06-07",
+      "pmid": "38843331",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1126/science.adk0775",
+        "https://europepmc.org/article/MED/38843331"
+      ],
+      "license_records": []
+    },
+    "tutorial": {
+      "title": "Science杂志：富集结果条形图还可以聚类吗？",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247539059&idx=1&sn=4fc44a010cf87ecc0cad48258b9157c6&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m04",
+    "number": 4,
+    "title": "通路文字图",
+    "description": "让字号与色彩成为通路的另一种语言。",
+    "figure": "Fig. 4A",
+    "image": "assets/originals/m04.png",
+    "example": "assets/examples/m04.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m04/images/000.png",
+    "image_sha256": "ac135075fefa47f0d574ee5de826736232e39ffd2cc8e72a47eaf2b994ea4f98",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Defining the KRAS- and ERK-dependent transcriptome in KRAS-mutant cancers",
+      "journal": "Science",
+      "doi": "10.1126/science.adk0775",
+      "url": "https://doi.org/10.1126/science.adk0775",
+      "published_online": "2024-06-07",
+      "published_print": "2024-06-07",
+      "pmid": "38843331",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1126/science.adk0775",
+        "https://europepmc.org/article/MED/38843331"
+      ],
+      "license_records": []
+    },
+    "tutorial": {
+      "title": "一种很新的功能富集结果展示方法",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247537055&idx=1&sn=26544d5687fbe6001391e869ea84e692&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m05",
+    "number": 5,
+    "title": "GSEA NES 排序气泡图",
+    "description": "沿 NES 排名，读出通路的整体变化。",
+    "figure": "Fig. 1C",
+    "image": "assets/originals/m05.png",
+    "example": "assets/examples/m05.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m05/images/000.png",
+    "image_sha256": "ab8f737fb14a840ba23c7b3d4681285a1abf136f20aa30341252d841698b0714",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Defining the KRAS- and ERK-dependent transcriptome in KRAS-mutant cancers",
+      "journal": "Science",
+      "doi": "10.1126/science.adk0775",
+      "url": "https://doi.org/10.1126/science.adk0775",
+      "published_online": "2024-06-07",
+      "published_print": "2024-06-07",
+      "pmid": "38843331",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1126/science.adk0775",
+        "https://europepmc.org/article/MED/38843331"
+      ],
+      "license_records": []
+    },
+    "tutorial": {
+      "title": "Science杂志高颜值GSEA打分排序图",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247537935&idx=1&sn=494eae3c7b11b4afca650ab1f82d1350&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m06",
+    "number": 6,
+    "title": "高亮双向富集条形图",
+    "description": "在双向结果里，让关键通路先被看见。",
+    "figure": "Fig. 2F",
+    "image": "assets/originals/m06.png",
+    "example": "assets/examples/m06.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m06/images/000.png",
+    "image_sha256": "dd165d38184bf3dc9dcaa56c724eeb154674642dc47c201d935ee97f99f7ca11",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Integrated multi-omics profiling reveals neutrophil extracellular traps potentiate Aortic dissection progression",
+      "journal": "Nature Communications",
+      "doi": "10.1038/s41467-024-55038-8",
+      "url": "https://doi.org/10.1038/s41467-024-55038-8",
+      "published_online": "2024-12-30",
+      "published_print": "",
+      "pmid": "39737994",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1038/s41467-024-55038-8",
+        "https://europepmc.org/article/MED/39737994"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                12,
+                30
+              ]
+            ],
+            "date-time": "2024-12-30T00:00:00Z",
+            "timestamp": 1735516800000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                12,
+                30
+              ]
+            ],
+            "date-time": "2024-12-30T00:00:00Z",
+            "timestamp": 1735516800000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "突出你的新发现：高亮富集结果中的关键通路绘制",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247538234&idx=1&sn=f262f1933ebd7902c5a72d87249053d5&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m07",
+    "number": 7,
+    "title": "拟时序热图与富集注释",
+    "description": "从表达轨迹，到模块背后的生物学过程。",
+    "figure": "Fig. 5f",
+    "image": "assets/originals/m07.png",
+    "example": "assets/examples/m07.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m07/images/000.png",
+    "image_sha256": "7c7e16f5555483ead7ba36cae9a596f11883c6d9464658ef4e1002eb1d30b06e",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "The spatiotemporal transcriptional profiling of murine brain during cerebral malaria progression and after artemisinin treatment",
+      "journal": "Nature Communications",
+      "doi": "10.1038/s41467-024-52223-7",
+      "url": "https://doi.org/10.1038/s41467-024-52223-7",
+      "published_online": "2025-02-11",
+      "published_print": "",
+      "pmid": "39934099",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1038/s41467-024-52223-7",
+        "https://europepmc.org/article/MED/39934099"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                2,
+                11
+              ]
+            ],
+            "date-time": "2025-02-11T00:00:00Z",
+            "timestamp": 1739232000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                2,
+                11
+              ]
+            ],
+            "date-time": "2025-02-11T00:00:00Z",
+            "timestamp": 1739232000000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "NC杂志同款的单细胞拟时序分析图",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247550399&idx=1&sn=cf8bf20551cfa7a02fee7842fd3902a5&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "论文作者调用 + Monocle软件作者绘图函数",
+    "note": ""
+  },
+  {
+    "id": "m08",
+    "number": 8,
+    "title": "多通路 GSEA 运行曲线",
+    "description": "曲线、命中位置与统计信息，清晰对应。",
+    "figure": "GSEA 运行曲线 · 教程引述局部图",
+    "image": "assets/originals/m08.png",
+    "example": "assets/examples/m08.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m08/images/000.png",
+    "image_sha256": "466859f390611b8ff417adf1dc5aaf2edfe5261e3d92f29fa0d41c4d22c18fef",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Immune responses in checkpoint myocarditis across heart, blood and tumour",
+      "journal": "Nature",
+      "doi": "10.1038/s41586-024-08105-5",
+      "url": "https://doi.org/10.1038/s41586-024-08105-5",
+      "published_online": "2024-11-06",
+      "published_print": "2024-12-05",
+      "pmid": "39506125",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1038/s41586-024-08105-5",
+        "https://europepmc.org/article/MED/39506125"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                11,
+                6
+              ]
+            ],
+            "date-time": "2024-11-06T00:00:00Z",
+            "timestamp": 1730851200000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                11,
+                6
+              ]
+            ],
+            "date-time": "2024-11-06T00:00:00Z",
+            "timestamp": 1730851200000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "过去调半天的 GSEA 富集分析图，现在Codex 5 分钟复现 Nature 同款",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247552839&idx=1&sn=10c65712e67a395b873429c7cecf9680&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "论文作者（villani-lab/myocarditis，仓库Figure 2F）",
+    "note": "图片与作者仓库的图号标注有差异；MCP 默认采用作者仓库 Figure 2F 的分面样式，可选 overlay 叠加样式。"
+  },
+  {
+    "id": "m09",
+    "number": 9,
+    "title": "Cell 差异散点与富集组合图",
+    "description": "把基因层面的变化，连接到通路层面。",
+    "figure": "Fig. 2H",
+    "image": "assets/originals/m09.webp",
+    "example": "assets/examples/m09.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m09/images/000.webp",
+    "image_sha256": "70ee64e3088034b75b9333ce85ba5c74b75f5f39189a7151364b8a72e84962e2",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Reconstituting human primitive streak formation through extra-embryonic cell coordination",
+      "journal": "Cell",
+      "doi": "10.1016/j.cell.2026.05.045",
+      "url": "https://doi.org/10.1016/j.cell.2026.05.045",
+      "published_online": "2026-06-24",
+      "published_print": "2026-09",
+      "pmid": "42341759",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1016/j.cell.2026.05.045",
+        "https://europepmc.org/article/MED/42341759"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                1
+              ]
+            ],
+            "date-time": "2026-09-01T00:00:00Z",
+            "timestamp": 1788220800000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                1
+              ]
+            ],
+            "date-time": "2026-09-01T00:00:00Z",
+            "timestamp": 1788220800000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                1
+              ]
+            ],
+            "date-time": "2026-09-01T00:00:00Z",
+            "timestamp": 1788220800000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-017"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                1
+              ]
+            ],
+            "date-time": "2026-09-01T00:00:00Z",
+            "timestamp": 1788220800000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-037"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                1
+              ]
+            ],
+            "date-time": "2026-09-01T00:00:00Z",
+            "timestamp": 1788220800000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-012"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                1
+              ]
+            ],
+            "date-time": "2026-09-01T00:00:00Z",
+            "timestamp": 1788220800000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-029"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                1
+              ]
+            ],
+            "date-time": "2026-09-01T00:00:00Z",
+            "timestamp": 1788220800000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-004"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "来吧，展示最新的ChatGPT 5.6 模型实力：Cell组合图的复现",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247553186&idx=1&sn=78ef338eaadef3f816327a63f995cda6&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "本机既有复现脚本，教程引用同名文件；作者身份未确认",
+    "note": ""
+  },
+  {
+    "id": "m10",
+    "number": 10,
+    "title": "富集玫瑰图",
+    "description": "让多组通路结果，沿圆周展开。",
+    "figure": "细胞类型分组的通路玫瑰图",
+    "image": "assets/originals/m10.png",
+    "example": "assets/examples/m10.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m10/images/000.png",
+    "image_sha256": "9c0febc8c8412adfe33cf891d0df5907c28eb7fe18f369d6d96ecde7fb7d4e4b",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Single‐cell transcriptomics stratifies organoid models of metabolic dysfunction‐associated steatotic liver disease",
+      "journal": "The EMBO Journal",
+      "doi": "10.15252/embj.2023113898",
+      "url": "https://doi.org/10.15252/embj.2023113898",
+      "published_online": "2023-11-14",
+      "published_print": "2023-12-11",
+      "pmid": "37962490",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.15252/embj.2023113898",
+        "https://europepmc.org/article/MED/37962490"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2023,
+                11,
+                14
+              ]
+            ],
+            "date-time": "2023-11-14T00:00:00Z",
+            "timestamp": 1699920000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2023,
+                11,
+                14
+              ]
+            ],
+            "date-time": "2023-11-14T00:00:00Z",
+            "timestamp": 1699920000000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "万里挑一的功能富集结果玫瑰图",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247547373&idx=1&sn=9ebdbc10014f781ede38d472897782ad&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": "原图展示玫瑰图样式；MCP 将教程中的通用环形条形图代码适配到富集结果。"
+  },
+  {
+    "id": "m11",
+    "number": 11,
+    "title": "PCA、火山图与富集气泡图",
+    "description": "从样本分离、差异蛋白，到通路变化。",
+    "figure": "Fig. 1b–d",
+    "image": "assets/originals/m11.png",
+    "example": "assets/examples/m11.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m11/images/000.png",
+    "image_sha256": "13c9f7bd9104b4a27ff65696d7bd4154ef4b48a21833fbad9ddeb25f6fb37d2b",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Prospective observational study on biomarkers of response in pancreatic ductal adenocarcinoma",
+      "journal": "Nature Medicine",
+      "doi": "10.1038/s41591-023-02790-x",
+      "url": "https://doi.org/10.1038/s41591-023-02790-x",
+      "published_online": "2024-01-29",
+      "published_print": "2024-03",
+      "pmid": "38287168",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1038/s41591-023-02790-x",
+        "https://europepmc.org/article/MED/38287168"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                1,
+                29
+              ]
+            ],
+            "date-time": "2024-01-29T00:00:00Z",
+            "timestamp": 1706486400000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                1,
+                29
+              ]
+            ],
+            "date-time": "2024-01-29T00:00:00Z",
+            "timestamp": 1706486400000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "高分杂志Figure1绘制：PCA + 火山图 + 通路富集气泡图（包含分析代码与绘图统统给你）",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247546074&idx=1&sn=ce925f6bdd09969000d7089d924e24e6&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "论文作者（PDAC2 Figure 1代码书）",
+    "note": ""
+  },
+  {
+    "id": "m12",
+    "number": 12,
+    "title": "通路气泡与桑基图",
+    "description": "连接通路与成员基因，保留关系的细节。",
+    "figure": "Fig. 5c",
+    "image": "assets/originals/m12.png",
+    "example": "assets/examples/m12.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m12/images/000.png",
+    "image_sha256": "a7242c45f59ae6d0e26db4defceb5391220d0681dbab0584d597901e05c9b41c",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Kir2.1-mediated membrane potential promotes nutrient acquisition and inflammation through regulation of nutrient transporters",
+      "journal": "Nature Communications",
+      "doi": "10.1038/s41467-022-31149-y",
+      "url": "https://doi.org/10.1038/s41467-022-31149-y",
+      "published_online": "2022-06-21",
+      "published_print": "",
+      "pmid": "35729093",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1038/s41467-022-31149-y",
+        "https://europepmc.org/article/MED/35729093"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                6,
+                21
+              ]
+            ],
+            "date-time": "2022-06-21T00:00:00Z",
+            "timestamp": 1655769600000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by/4.0"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                6,
+                21
+              ]
+            ],
+            "date-time": "2022-06-21T00:00:00Z",
+            "timestamp": 1655769600000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by/4.0"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "NC杂志同款桑基图：连接富集结果中的通路与基因",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247545344&idx=1&sn=9dc9fe17b8ff971c40a3c8d4c96064d0&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m13",
+    "number": 13,
+    "title": "GSVA t 值双向条形图",
+    "description": "用双向条形，呈现 GSVA 差异统计量。",
+    "figure": "Fig. 2d",
+    "image": "assets/originals/m13.png",
+    "example": "assets/examples/m13.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m13/images/000.png",
+    "image_sha256": "a0d4321b6ff66ebbeaacdb6d9ff118aea8461052238cdb0cb7da094862eedbb6",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Phenotype molding of stromal cells in the lung tumor microenvironment",
+      "journal": "Nature Medicine",
+      "doi": "10.1038/s41591-018-0096-5",
+      "url": "https://doi.org/10.1038/s41591-018-0096-5",
+      "published_online": "2018-07-09",
+      "published_print": "2018-08",
+      "pmid": "29988129",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1038/s41591-018-0096-5",
+        "https://europepmc.org/article/MED/29988129"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2018,
+                7,
+                9
+              ]
+            ],
+            "date-time": "2018-07-09T00:00:00Z",
+            "timestamp": 1531094400000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "http://www.springer.com/tdm"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2018,
+                7,
+                9
+              ]
+            ],
+            "date-time": "2018-07-09T00:00:00Z",
+            "timestamp": 1531094400000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "http://www.springer.com/tdm"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "顶刊杂志Nat Med.(IF=58.7)同款GSVA打分结果可视化",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247540344&idx=1&sn=747fd12b9392a30263f9b4dcca84fc28&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m14",
+    "number": 14,
+    "title": "火山图与基因集条带",
+    "description": "在火山图下，再加一层基因集信息。",
+    "figure": "Fig. 1A",
+    "image": "assets/originals/m14.png",
+    "example": "assets/examples/m14.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m14/images/000.png",
+    "image_sha256": "c61d215d235fc037b99e5ba368aa7cfef1cf8fc4c531ec65ff0fc365a0c1aadf",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Defining the KRAS- and ERK-dependent transcriptome in KRAS-mutant cancers",
+      "journal": "Science",
+      "doi": "10.1126/science.adk0775",
+      "url": "https://doi.org/10.1126/science.adk0775",
+      "published_online": "2024-06-07",
+      "published_print": "2024-06-07",
+      "pmid": "38843331",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1126/science.adk0775",
+        "https://europepmc.org/article/MED/38843331"
+      ],
+      "license_records": []
+    },
+    "tutorial": {
+      "title": "Science杂志：比火山图多一点信息的火山图",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247539963&idx=1&sn=35a7f9aa1a032dab77ab3fd859a9834e&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m15",
+    "number": 15,
+    "title": "富集彗星图",
+    "description": "以彗尾表现显著性，以圆点呈现基因数。",
+    "figure": "Fig. 2E",
+    "image": "assets/originals/m15.jpg",
+    "example": "assets/examples/m15.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m15/images/001.jpg",
+    "image_sha256": "f32687a5fdb1952edb3e70ce9009fce05a366c0f42595d56b1a2fc2ec8e1d834",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Novel AT2 Cell Subpopulations and Diagnostic Biomarkers in IPF: Integrating Machine Learning with Single-Cell Analysis",
+      "journal": "International Journal of Molecular Sciences",
+      "doi": "10.3390/ijms25147754",
+      "url": "https://doi.org/10.3390/ijms25147754",
+      "published_online": "2024-07-15",
+      "published_print": "",
+      "pmid": "39062997",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.3390/ijms25147754",
+        "https://europepmc.org/article/MED/39062997"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                7,
+                15
+              ]
+            ],
+            "date-time": "2024-07-15T00:00:00Z",
+            "timestamp": 1721001600000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "用流星图/彗星图（在此之前还不认识这种图呢！）展示富集分析结果",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247538003&idx=1&sn=e7489f68ec86515c43ac902f485daeef&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  },
+  {
+    "id": "m16",
+    "number": 16,
+    "title": "KEGG 分类条形图",
+    "description": "按 KEGG 类别，组织一张清晰的富集图。",
+    "figure": "教程示例",
+    "image": "assets/originals/m16.png",
+    "example": "assets/examples/m16.png",
+    "image_kind": "tutorial_example",
+    "image_label": "教程示例",
+    "original_file": "paper/tutorials/m16/images/003.png",
+    "image_sha256": "bb17a3411d163c26ab2d7efc5ce32cbf1342816638e3059c4db21fb70f506ca1",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": null,
+    "tutorial": {
+      "title": "KEGG富集结果7大分类展示",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247536875&idx=2&sn=67fe96abc9c8a139edebfa8a89728df8&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": "教程给出 KEGG 分类绘图示例，未指向特定论文，因此不虚填期刊或发表日期。"
+  },
+  {
+    "id": "m17",
+    "number": 17,
+    "title": "GO/KEGG 环形图",
+    "description": "将通路、基因变化和方向放入同心圆。",
+    "figure": "Fig. 3A–E",
+    "image": "assets/originals/m17.png",
+    "example": "assets/examples/m17.png",
+    "image_kind": "paper_figure_via_tutorial",
+    "image_label": "文献原图 · 教程引述",
+    "original_file": "paper/tutorials/m17/images/001.png",
+    "image_sha256": "9369b0ee5c817309e1c3ecec61beefc1396f7d101d7fc9ddaaa006a4506dc40f",
+    "image_changes": "none; byte-identical copy of archived tutorial image",
+    "citation": {
+      "title": "Identification of comorbid genes between type 2 diabetes and migraine through peripheral blood single-cell and Mendelian randomization analysis",
+      "journal": "The Journal of Headache and Pain",
+      "doi": "10.1186/s10194-025-02090-4",
+      "url": "https://doi.org/10.1186/s10194-025-02090-4",
+      "published_online": "2025-07-01",
+      "published_print": "",
+      "pmid": "40596821",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1186/s10194-025-02090-4",
+        "https://europepmc.org/article/MED/40596821"
+      ],
+      "license_records": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                1
+              ]
+            ],
+            "date-time": "2025-07-01T00:00:00Z",
+            "timestamp": 1751328000000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+        }
+      ]
+    },
+    "tutorial": {
+      "title": "富集分析结果展示还有什么花样可以用呢？",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247549084&idx=1&sn=aaa7593d7e5a0ec91e82ea66bfad42b9&scene=21#wechat_redirect",
+      "author": "生信技能树"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "教程作者",
+    "note": ""
+  }
+]
