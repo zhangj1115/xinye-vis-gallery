@@ -1,13 +1,27 @@
+<!-- Origin: CODEX_NEW — current published gallery description. -->
 # 新叶绘图(xinye-vis MCP) · 文献原图索引
 
-18款生信可视化案例：bulk转录组17款富集图，单细胞转录组1款UMAP大群轮廓与亚群标签（sc01）。17款为教程引述的论文原图，对应14篇文献；m16为教程示例。
+[打开在线图册](https://zhangj1115.github.io/xinye-vis-gallery/)
 
-每款展示期刊、论文标题、首次在线发表和卷期时间，并链接至论文与教程。支持分类、搜索、原图放大及独立查看MCP合成示例。线上图片位于assets/，与index.html一同部署。
+当前收录 **90 个绘图案例**：18 个已有可运行 MCP 绘图实现，72 个提供原教程、原作者代码或既有复现资料，由 Agent 按实际数据适配。知识案例不等同于已验证的通用绘图工具。
 
-[单细胞案例](https://zhangj1115.github.io/xinye-vis-gallery/?category=single-cell)
+| 分类 | 展示案例数 |
+|---|---:|
+| bulk转录组 | 34 |
+| 单细胞转录组 | 37 |
+| 空间转录组 | 5 |
+| 蛋白组 | 3 |
+| 代谢组 | 0 |
+| 基因组与突变 | 5 |
+| 微生物组 | 4 |
+| 通用绘图 | 3 |
 
-sc01依据生信技能树教程《高分杂志同款单细胞umap加圈：升级版本》改编，保留ggunchull非凸虚线轮廓、两级标签和tidydr箭头轴。文献为Cell Stem Cell的Spatiotemporal single-cell roadmap of human skin wound healing（首次在线2024-12-26，卷期2025-03-06，DOI 10.1016/j.stem.2024.11.013）。
+跨分类案例会在对应栏目同时展示，因此栏目数之和大于独立案例总数。正式编号采用 BK、SC、SP、P、M、G、MR、X 分类前缀；移除与合并的旧编号不再提供独立页面。
 
-文献来源见references.json和references.tsv。原图不是MCP生成结果，图片版权归原权利人；MCP示例单独标注数据来源。绘图代码来源类型为CODEX_ADAPTED，明确区分教程作者、软件作者与论文作者。
+卡片提供文献原图、期刊、发表时间、论文标题链接和教程来源。支持分类、搜索、原图放大、来源代码阅读与可展开的 Agent 调用提示词。原图与 MCP 示例分别标注；图片版权归原权利人。
 
-此仓库用于图册展示；MCP服务在使用者本地环境运行，不上传个人分析结果。
+新增 SC45「单细胞 UMAP＋环形组织组成堆叠柱图」收录 Nature Communications（2025-01-17）文献 Fig. 1d 的完整原图、作者仓库脚本、既有本地复现及 CSV 输入模板。该案例当前为知识资料入口。
+
+网站由 `main` 分支根目录通过 GitHub Pages 发布。`index.html`、`assets/`、`recipes/` 与来源清单需一起部署；旧预览地址会跳转到主入口。`references.json`、`references.tsv` 保留来源与图像校验值。
+
+此仓库用于图册展示；MCP 服务及分析数据保留在使用者本地环境。
