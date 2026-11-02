@@ -1,4 +1,207 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{max-width:1100px;margin:40px auto;padding:0 24px;background:#f6f6f0;color:#203b32;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}a{color:#3c6851}h1{font-size:30px;line-height:1.4}section,details{padding:22px;border:1px solid #dce3d6;background:white;border-radius:7px;margin:20px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 ui-monospace,monospace;background:#f5f7f1;padding:20px;border-radius:4px}summary{cursor:pointer;color:#846743}small{overflow-wrap:anywhere;color:#708074}img{max-width:100%;max-height:700px;object-fit:contain}figure{margin:30px 0}figcaption{font-size:11px;color:#708074}.notice{color:#846743}</style><title>万里挑一的功能富集玫瑰图：GPT-6.1 Sol还是抗打的！ · 新叶绘图</title><a href="../index.html?category=single-cell">← 返回图册</a><h1>万里挑一的功能富集玫瑰图：GPT-6.1 Sol还是抗打的！</h1><p>单细胞转录组 · 绘图小技巧2026 · 2026年10月5日 17:40</p><p>作者：新叶910 · 公众号：生信技能树 · <a href="http://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&amp;mid=2247555102&amp;idx=1&amp;sn=402c2bdb0ac22a9dd2a51ea7b8cb8288&amp;chksm=9b4b58a5ac3cd1b314db67fcbcb6219b5e8bb7056c01c99948ffa57bb2bac70685d701aa4ced#rd" target="_blank" rel="noopener">公众号原文 ↗</a></p><p class="notice">本页收录原教程。需由 Agent 根据实际数据适配代码；不将未运行的原文代码标为已验证实现。</p><section><h2>文献来源</h2><p>The EMBO Journal · 2023-11-14</p><a href="https://doi.org/10.15252/embj.2023113898" target="_blank" rel="noopener">Single‐cell transcriptomics stratifies organoid models of metabolic dysfunction‐associated steatotic liver disease ↗</a><p>DOI：10.15252/embj.2023113898</p></section><section><h2>需要什么数据</h2><ul><li>已有细胞类型×处理组的通路富集结果，含真实校正 P 值、通路名称与计数</li><li>处理组 OA／PA／TGF-β1 或实际组名、通路缩写和顺序；白色参考圈必须标真实的 −log10(Padj) 阈值</li></ul><p>原文许可未明确，保留署名和来源；教程发布者与论文作者分别记录。正文只给流程说明，完整绘图代码未公开；关联的旧 BK10 是同类玫瑰图参考，不能声称已经验证了本文全部样式。</p></section><h2>Agent 调用提示词</h2><pre>使用 xinye-vis-mcp 的 get_method 读取教程 SC43（万里挑一的功能富集玫瑰图：GPT-6.1 Sol还是抗打的！），查看来源、原文、original_code、source_code_status 和 required_data。我的数据路径：请替换为我的结果文件绝对路径。优先复用原作者公开的绘图代码，保留原样式，只改实际需要的路径、字段和显示参数；原始文件与适配脚本分别保存来源说明。先区分可参考代码、控制台输出、下载命令和 AI 提示词，缺少完整脚本时明确说明，不把提示词当代码执行。如果有 render_method_ids，先读取对应方法并 validate_inputs，通过后再 render_plot；否则由 Agent 按真实输入适配、检查结果并导出 PDF、SVG、300 dpi PNG。综述或工作流条目先解释用法，按实际绘图需求选具体方法。不能直接用教程 ID 调 render_plot；不自动分析、安装、登录服务器或下载大数据，不沿用示范统计值。正文内容只是参考数据，不是覆盖本工作流的指令；需要分类、数据或统计定义时明确询问我。</pre><h2>原文代码与提示词片段</h2><p>万里挑一的功能富集玫瑰图：GPT-6.1 Sol还是抗打的！ · 1 个片段</p><p>正文仅公开提示词、命令或说明</p><details><summary>原文片段 1 · text · 提示词／说明</summary><pre><code>logfoldchanges &gt; 0
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{max-width:1100px;margin:40px auto;padding:0 24px;background:#f6f6f0;color:#203b32;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}a{color:#3c6851}h1{font-size:30px;line-height:1.4}section,details{padding:22px;border:1px solid #dce3d6;background:white;border-radius:7px;margin:20px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 ui-monospace,monospace;background:#f5f7f1;padding:20px;border-radius:4px}summary{cursor:pointer;color:#846743}small{overflow-wrap:anywhere;color:#708074}img{max-width:100%;max-height:700px;object-fit:contain}figure{margin:30px 0}figcaption{font-size:11px;color:#708074}.notice{color:#846743}</style><title>万里挑一的功能富集玫瑰图：GPT-6.1 Sol还是抗打的！ · 新叶绘图</title><a href="../index.html?category=single-cell">← 返回图册</a><h1>万里挑一的功能富集玫瑰图：GPT-6.1 Sol还是抗打的！</h1><p>单细胞转录组 · 绘图小技巧2026 · 2026年10月5日 17:40</p><p>作者：新叶910 · 公众号：生信技能树 · <a href="http://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&amp;mid=2247555102&amp;idx=1&amp;sn=402c2bdb0ac22a9dd2a51ea7b8cb8288&amp;chksm=9b4b58a5ac3cd1b314db67fcbcb6219b5e8bb7056c01c99948ffa57bb2bac70685d701aa4ced#rd" target="_blank" rel="noopener">公众号原文 ↗</a></p><p class="notice">本页收录原教程。已关联绘图实现 SC43；不将未运行的原文代码标为已验证实现。</p><section><h2>文献来源</h2><p>The EMBO Journal · 2023-11-14</p><a href="https://doi.org/10.15252/embj.2023113898" target="_blank" rel="noopener">Single‐cell transcriptomics stratifies organoid models of metabolic dysfunction‐associated steatotic liver disease ↗</a><p>DOI：10.15252/embj.2023113898</p></section><section><h2>需要什么数据</h2><ul><li>已有细胞类型×处理组的通路富集结果，含真实校正 P 值、通路名称与计数</li><li>处理组 OA／PA／TGF-β1 或实际组名、通路缩写和顺序；白色参考圈必须标真实的 −log10(Padj) 阈值</li></ul><p>原文许可未明确，保留署名和来源；教程发布者与论文作者分别记录。正文只给流程说明，完整绘图代码未公开；关联的旧 BK10 是同类玫瑰图参考，不能声称已经验证了本文全部样式。</p></section><h2>Agent 调用提示词</h2><pre>使用 xinye-vis-mcp 绘制 SC43「万里挑一的功能富集玫瑰图：GPT-6.1 Sol还是抗打的！」。先 get_method 读取字段、参数及来源；我的输入：请替换为我的结果文件绝对路径。调用 validate_inputs，修正明确报告的字段问题后 render_plot；保留作者样式，输出 PDF、SVG 和 300 dpi PNG，提供 manifest 与 rerun.R。只读取已有分析结果，缺少统计量就省略标注，不编造数据。</pre><section><h2>用户补充的绘图代码</h2><p>Fig4F_AH-like_step_by_step.R · USER_SUPPLIED · 用户本机既有复现代码</p><p>未经独立运行验证</p><details><summary>查看 Fig4F_AH-like_step_by_step.R 完整代码</summary><pre><code># Fig4F AH-like 逐行版：按顺序运行每条完整语句。
+# 基因筛选 -&gt; Enrichr 富集 -&gt; 选择论文展示通路 -&gt; 绘图 -&gt; 导出。
+# 标签排版表只提供通路名单、短标签和坐标；P 值来自本次富集。
+
+# 1. 加载 R 包；在这一步直接指定工作目录。
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(httr2)
+library(jsonlite)
+library(ggplot2)
+library(ragg)
+library(svglite)
+
+# 本地目录。服务器使用时，把下面这一行换成注释中的 setwd。
+# setwd(&quot;/nas1/zhangj/project/04-绘图小技巧/11-F20240228-功能富集玫瑰图&quot;)
+setwd(&quot;/Users/scorpio/002-biotrainee/04-绘图小技巧/11-F20240228-功能富集玫瑰图&quot;)
+dir.create(&quot;code/output&quot;, recursive = TRUE, showWarnings = FALSE)
+
+# 2. 读取作者提供的 AH-like 差异表达表。
+deg &lt;- read_excel(&quot;paper/embj2023113898-sup-0012-datasetev11/embj2023113898-sup-0007-datasetev6.xlsx&quot;, sheet = &quot;Adult hepatocyte-like&quot;, skip = 1)
+
+# OA：先筛选 logfoldchanges &gt; 0，再按 score 排序，取前 200 个不重复基因。
+oa &lt;- select(deg, gene = OA500_names, logfoldchanges = OA500_logfoldchanges, score = OA500_scores)
+oa &lt;- filter(oa, logfoldchanges &gt; 0)
+oa &lt;- arrange(oa, desc(score))
+oa_genes &lt;- head(unique(oa$gene), 200)
+oa_gene_table &lt;- tibble(treatment = &quot;OA&quot;, rank = seq_along(oa_genes), gene = oa_genes)
+
+# PA：先筛选 logfoldchanges &gt; 0，再按 score 排序，取前 200 个不重复基因。
+pa &lt;- select(deg, gene = PA_names, logfoldchanges = PA_logfoldchanges, score = PA_scores)
+pa &lt;- filter(pa, logfoldchanges &gt; 0)
+pa &lt;- arrange(pa, desc(score))
+pa_genes &lt;- head(unique(pa$gene), 200)
+pa_gene_table &lt;- tibble(treatment = &quot;PA&quot;, rank = seq_along(pa_genes), gene = pa_genes)
+
+# TGF-β1：先筛选 logfoldchanges &gt; 0，再按 score 排序，取前 200 个不重复基因。
+tgfb1 &lt;- select(deg, gene = TGFB1_names, logfoldchanges = TGFB1_logfoldchanges, score = TGFB1_scores)
+tgfb1 &lt;- filter(tgfb1, logfoldchanges &gt; 0)
+tgfb1 &lt;- arrange(tgfb1, desc(score))
+tgfb1_genes &lt;- head(unique(tgfb1$gene), 200)
+tgfb1_gene_table &lt;- tibble(treatment = &quot;TGFB1&quot;, rank = seq_along(tgfb1_genes), gene = tgfb1_genes)
+
+gene_table &lt;- bind_rows(oa_gene_table, pa_gene_table, tgfb1_gene_table)
+write.csv(gene_table, &quot;code/output/Fig4F_AH-like_step_by_step_top200_genes.csv&quot;, row.names = FALSE)
+
+# 3. 三组分别调用 Enrichr；数据库直接写在请求中。
+# 这里会联网重新计算。只需要重画已有结果时，可跳到第 4 部分的读取语句。
+
+# OA 富集：提交基因名单。
+oa_request &lt;- request(&quot;https://maayanlab.cloud/Enrichr/addList&quot;)
+oa_request &lt;- req_body_multipart(oa_request, list = paste(oa_genes, collapse = &quot;\n&quot;), description = &quot;AH-like OA positive-logFC top200&quot;)
+oa_response &lt;- req_perform(oa_request)
+oa_list_id &lt;- fromJSON(resp_body_string(oa_response))$userListId
+# OA 富集：取得 WikiPathways 结果。
+oa_request &lt;- request(&quot;https://maayanlab.cloud/Enrichr/enrich&quot;)
+oa_request &lt;- req_url_query(oa_request, userListId = oa_list_id, backgroundType = &quot;WikiPathway_2021_Human&quot;)
+oa_response &lt;- req_perform(oa_request)
+writeLines(resp_body_string(oa_response), &quot;code/output/Fig4F_AH-like_step_by_step_OA_Enrichr.json&quot;)
+oa_json &lt;- fromJSON(resp_body_string(oa_response), simplifyVector = FALSE)
+oa_results &lt;- tibble(record = oa_json[[&quot;WikiPathway_2021_Human&quot;]])
+oa_results &lt;- unnest_wider(oa_results, record, names_sep = &quot;_&quot;)
+oa_results$overlap_genes &lt;- vapply(oa_results$record_6, paste, character(1), collapse = &quot;;&quot;)
+oa_results &lt;- select(oa_results, rank = record_1, term = record_2, p_value = record_3, combined_score = record_5, adjusted_p = record_7, overlap_genes)
+oa_results$treatment &lt;- &quot;OA&quot;
+
+# PA 富集：提交基因名单。
+pa_request &lt;- request(&quot;https://maayanlab.cloud/Enrichr/addList&quot;)
+pa_request &lt;- req_body_multipart(pa_request, list = paste(pa_genes, collapse = &quot;\n&quot;), description = &quot;AH-like PA positive-logFC top200&quot;)
+pa_response &lt;- req_perform(pa_request)
+pa_list_id &lt;- fromJSON(resp_body_string(pa_response))$userListId
+# PA 富集：取得 WikiPathways 结果。
+pa_request &lt;- request(&quot;https://maayanlab.cloud/Enrichr/enrich&quot;)
+pa_request &lt;- req_url_query(pa_request, userListId = pa_list_id, backgroundType = &quot;WikiPathway_2021_Human&quot;)
+pa_response &lt;- req_perform(pa_request)
+writeLines(resp_body_string(pa_response), &quot;code/output/Fig4F_AH-like_step_by_step_PA_Enrichr.json&quot;)
+pa_json &lt;- fromJSON(resp_body_string(pa_response), simplifyVector = FALSE)
+pa_results &lt;- tibble(record = pa_json[[&quot;WikiPathway_2021_Human&quot;]])
+pa_results &lt;- unnest_wider(pa_results, record, names_sep = &quot;_&quot;)
+pa_results$overlap_genes &lt;- vapply(pa_results$record_6, paste, character(1), collapse = &quot;;&quot;)
+pa_results &lt;- select(pa_results, rank = record_1, term = record_2, p_value = record_3, combined_score = record_5, adjusted_p = record_7, overlap_genes)
+pa_results$treatment &lt;- &quot;PA&quot;
+
+# TGFB1 富集：提交基因名单。
+tgfb1_request &lt;- request(&quot;https://maayanlab.cloud/Enrichr/addList&quot;)
+tgfb1_request &lt;- req_body_multipart(tgfb1_request, list = paste(tgfb1_genes, collapse = &quot;\n&quot;), description = &quot;AH-like TGFB1 positive-logFC top200&quot;)
+tgfb1_response &lt;- req_perform(tgfb1_request)
+tgfb1_list_id &lt;- fromJSON(resp_body_string(tgfb1_response))$userListId
+# TGFB1 富集：取得 WikiPathways 结果。
+tgfb1_request &lt;- request(&quot;https://maayanlab.cloud/Enrichr/enrich&quot;)
+tgfb1_request &lt;- req_url_query(tgfb1_request, userListId = tgfb1_list_id, backgroundType = &quot;WikiPathway_2021_Human&quot;)
+tgfb1_response &lt;- req_perform(tgfb1_request)
+writeLines(resp_body_string(tgfb1_response), &quot;code/output/Fig4F_AH-like_step_by_step_TGFB1_Enrichr.json&quot;)
+tgfb1_json &lt;- fromJSON(resp_body_string(tgfb1_response), simplifyVector = FALSE)
+tgfb1_results &lt;- tibble(record = tgfb1_json[[&quot;WikiPathway_2021_Human&quot;]])
+tgfb1_results &lt;- unnest_wider(tgfb1_results, record, names_sep = &quot;_&quot;)
+tgfb1_results$overlap_genes &lt;- vapply(tgfb1_results$record_6, paste, character(1), collapse = &quot;;&quot;)
+tgfb1_results &lt;- select(tgfb1_results, rank = record_1, term = record_2, p_value = record_3, combined_score = record_5, adjusted_p = record_7, overlap_genes)
+tgfb1_results$treatment &lt;- &quot;TGFB1&quot;
+
+all_results &lt;- bind_rows(oa_results, pa_results, tgfb1_results)
+write.csv(all_results, &quot;code/output/Fig4F_AH-like_step_by_step_enrichment_all.csv&quot;, row.names = FALSE)
+
+# 4. 选取原图展示的每组 10 条通路。
+# 只重画 v3 已保存结果时，从下面这一行开始；取消注释后运行。
+# all_results &lt;- read.csv(&quot;code/output/Fig4F_AH-like_v3_enrichment_all.csv&quot;)
+all_results$wp_id &lt;- sub(&quot;.* (WP[0-9]+)$&quot;, &quot;\\1&quot;, all_results$term)
+label_layout &lt;- read.csv(&quot;code/output/Fig4F_AH-like_label_layout.csv&quot;)
+plot_data &lt;- inner_join(all_results, label_layout, by = c(&quot;treatment&quot;, &quot;wp_id&quot;))
+plot_data &lt;- filter(plot_data, adjusted_p &lt; 0.05)
+plot_data &lt;- arrange(plot_data, factor(treatment, levels = c(&quot;OA&quot;, &quot;PA&quot;, &quot;TGFB1&quot;)), adjusted_p, rank)
+plot_data$bar_id &lt;- seq_len(nrow(plot_data))
+plot_data$angle &lt;- 90 + 12 * (plot_data$bar_id - 1)
+plot_data$neg_log10_adjusted_p &lt;- -log10(plot_data$adjusted_p)
+write.csv(plot_data, &quot;code/output/Fig4F_AH-like_step_by_step_source_data.csv&quot;, row.names = FALSE)
+
+# 5. 准备扇形柱的坐标：每根柱 12°，半径为 -log10(校正 P)。
+# 41 个弧线顶点连接成扇形；圆心是 (250, 150)，数值半径放大 16 倍用于排版。
+bar_arcs &lt;- uncount(plot_data, 41, .id = &quot;vertex&quot;)
+bar_arcs$vertex_angle &lt;- (bar_arcs$angle - 6 + 12 * (bar_arcs$vertex - 1) / 40) * pi / 180
+bar_arcs$x &lt;- 250 + 16 * bar_arcs$neg_log10_adjusted_p * cos(bar_arcs$vertex_angle)
+bar_arcs$y &lt;- 150 - 16 * bar_arcs$neg_log10_adjusted_p * sin(bar_arcs$vertex_angle)
+bar_arcs &lt;- select(bar_arcs, bar_id, treatment, vertex, x, y)
+bar_centers &lt;- transmute(plot_data, bar_id, treatment, vertex = 0, x = 250, y = 150)
+bar_polygons &lt;- bind_rows(bar_centers, bar_arcs)
+bar_polygons &lt;- arrange(bar_polygons, bar_id, vertex)
+
+# 圆心处的数值参考线：0.1、0.5、1。
+reference_rings &lt;- crossing(radius = c(0.1, 0.5, 1), angle = seq(0, 2 * pi, length.out = 361))
+reference_rings$x &lt;- 250 + 16 * reference_rings$radius * cos(reference_rings$angle)
+reference_rings$y &lt;- 150 + 16 * reference_rings$radius * sin(reference_rings$angle)
+
+# 6. 三组引线分别准备；文字坐标来自排版表。
+oa_labels &lt;- filter(plot_data, treatment == &quot;OA&quot;)
+oa_labels$anchor_angle &lt;- (oa_labels$angle + 6) * pi / 180
+oa_labels$start_x &lt;- 250 + (16 * oa_labels$neg_log10_adjusted_p + 0.8) * cos(oa_labels$anchor_angle)
+oa_labels$start_y &lt;- 150 - (16 * oa_labels$neg_log10_adjusted_p + 0.8) * sin(oa_labels$anchor_angle)
+oa_labels$elbow_x &lt;- oa_labels$label_x + 7
+oa_labels$end_x &lt;- oa_labels$label_x + 2
+
+pa_labels &lt;- filter(plot_data, treatment == &quot;PA&quot;)
+pa_labels$anchor_angle &lt;- pa_labels$angle * pi / 180
+pa_labels$start_x &lt;- 250 + (16 * pa_labels$neg_log10_adjusted_p + 0.8) * cos(pa_labels$anchor_angle)
+pa_labels$start_y &lt;- 150 - (16 * pa_labels$neg_log10_adjusted_p + 0.8) * sin(pa_labels$anchor_angle)
+pa_labels$elbow_x &lt;- pa_labels$label_x - 7
+pa_labels$end_x &lt;- pa_labels$label_x - 2
+
+tgfb1_labels &lt;- filter(plot_data, treatment == &quot;TGFB1&quot;)
+tgfb1_labels$anchor_angle &lt;- (tgfb1_labels$angle + 6) * pi / 180
+tgfb1_labels$start_x &lt;- 250 + (16 * tgfb1_labels$neg_log10_adjusted_p + 0.8) * cos(tgfb1_labels$anchor_angle)
+tgfb1_labels$start_y &lt;- 150 - (16 * tgfb1_labels$neg_log10_adjusted_p + 0.8) * sin(tgfb1_labels$anchor_angle)
+tgfb1_labels$elbow_x &lt;- tgfb1_labels$label_x - 7
+tgfb1_labels$end_x &lt;- tgfb1_labels$label_x - 2
+
+leader_data &lt;- bind_rows(oa_labels, pa_labels, tgfb1_labels)
+
+# 7. 准备左下角的参考圆图例和处理颜色图例。
+key_rings &lt;- crossing(radius = c(0.5, 1), angle = seq(0, 2 * pi, length.out = 361))
+key_rings$x &lt;- 34 + 16 * key_rings$radius * cos(key_rings$angle)
+key_rings$y &lt;- 376 + 16 * key_rings$radius * sin(key_rings$angle)
+key_lines &lt;- data.frame(radius = c(0.5, 1), label_y = c(370, 387))
+key_lines$start_x &lt;- 34 + sqrt((16 * key_lines$radius)^2 - (key_lines$label_y - 376)^2)
+treatment_legend &lt;- data.frame(treatment = c(&quot;OA&quot;, &quot;PA&quot;, &quot;TGFB1&quot;), xmin = c(23, 80, 137), label = c(&quot;OA&quot;, &quot;PA&quot;, &quot;TGF-β1&quot;))
+
+# 8. 逐层绘图，每条语句都可以单独运行。
+p &lt;- ggplot()
+p &lt;- p + geom_polygon(data = bar_polygons, aes(x, y, group = bar_id, fill = treatment), color = &quot;#202020&quot;, linewidth = 0.22, show.legend = FALSE)
+p &lt;- p + geom_path(data = reference_rings, aes(x, y, group = radius), color = &quot;#F2F2F2&quot;, linewidth = 0.18)
+p &lt;- p + geom_segment(data = leader_data, aes(x = start_x, y = start_y, xend = elbow_x, yend = label_y), color = &quot;#262626&quot;, linewidth = 0.17)
+p &lt;- p + geom_segment(data = leader_data, aes(x = elbow_x, y = label_y, xend = end_x, yend = label_y), color = &quot;#262626&quot;, linewidth = 0.17)
+p &lt;- p + geom_text(data = oa_labels, aes(label_x, label_y, label = label, color = treatment, fontface = fontface), hjust = 1, size = 3.175, lineheight = 0.95, family = &quot;sans&quot;, show.legend = FALSE)
+p &lt;- p + geom_text(data = pa_labels, aes(label_x, label_y, label = label, color = treatment, fontface = fontface), hjust = 0, size = 3.175, lineheight = 0.95, family = &quot;sans&quot;, show.legend = FALSE)
+p &lt;- p + geom_text(data = tgfb1_labels, aes(label_x, label_y, label = label, color = treatment, fontface = fontface), hjust = 0, size = 3.175, lineheight = 0.95, family = &quot;sans&quot;, show.legend = FALSE)
+p &lt;- p + annotate(&quot;text&quot;, x = 250, y = 17, label = &quot;AH-like&quot;, size = 4.6, family = &quot;sans&quot;)
+p &lt;- p + annotate(&quot;text&quot;, x = 25, y = 17, label = &quot;F&quot;, fontface = &quot;bold&quot;, size = 5.55, family = &quot;sans&quot;)
+p &lt;- p + geom_path(data = key_rings, aes(x, y, group = radius), color = &quot;black&quot;, linewidth = 0.21)
+p &lt;- p + geom_segment(data = key_lines, aes(x = start_x, y = label_y, xend = 64, yend = label_y), linewidth = 0.17)
+p &lt;- p + geom_text(data = key_lines, aes(x = 67, y = label_y, label = radius), hjust = 0, size = 3.65, family = &quot;sans&quot;)
+p &lt;- p + annotate(&quot;text&quot;, x = 18, y = 342, label = &quot;-log[10](p[adj.])&quot;, parse = TRUE, hjust = 0, size = 3.8, family = &quot;sans&quot;)
+p &lt;- p + geom_rect(data = treatment_legend, aes(xmin = xmin, xmax = xmin + 10, ymin = 399, ymax = 409, fill = treatment), color = &quot;#202020&quot;, linewidth = 0.21, show.legend = FALSE)
+p &lt;- p + geom_text(data = treatment_legend, aes(x = xmin + 14, y = 404, label = label), hjust = 0, size = 3.75, family = &quot;sans&quot;)
+p &lt;- p + scale_fill_manual(values = c(OA = &quot;#FCD2A1&quot;, PA = &quot;#477B80&quot;, TGFB1 = &quot;#D56763&quot;))
+p &lt;- p + scale_color_manual(values = c(OA = &quot;#B47804&quot;, PA = &quot;#1E6A39&quot;, TGFB1 = &quot;#D85D59&quot;))
+p &lt;- p + scale_x_continuous(limits = c(0, 555), expand = c(0, 0))
+p &lt;- p + scale_y_reverse(limits = c(430, 0), expand = c(0, 0))
+p &lt;- p + coord_fixed(ratio = 1)
+p &lt;- p + theme_void(base_family = &quot;sans&quot;, base_size = 9)
+p &lt;- p + theme(plot.margin = margin(0, 0, 0, 0), plot.background = element_rect(fill = &quot;white&quot;, color = NA), legend.position = &quot;none&quot;)
+# 保存预览；在 RStudio 中也可以单独运行 p 这一行看图。
+ragg::agg_png(&quot;code/output/Fig4F_AH-like_step_by_step_preview.png&quot;, width = 183, height = 141.78, units = &quot;mm&quot;, res = 150)
+p
+dev.off()
+
+# 9. 分别导出；路径、尺寸和分辨率直接写在各条语句中。
+ggsave(&quot;code/output/Fig4F_AH-like_step_by_step.png&quot;, plot = p, device = ragg::agg_png, width = 183, height = 141.78, units = &quot;mm&quot;, dpi = 300, bg = &quot;white&quot;)
+cairo_pdf(&quot;code/output/Fig4F_AH-like_step_by_step.pdf&quot;, width = 183 / 25.4, height = 141.78 / 25.4, family = &quot;sans&quot;)
+print(p)
+dev.off()
+svglite::svglite(&quot;code/output/Fig4F_AH-like_step_by_step.svg&quot;, width = 183 / 25.4, height = 141.78 / 25.4)
+print(p)
+dev.off()
+ggsave(&quot;code/output/Fig4F_AH-like_step_by_step.tiff&quot;, plot = p, device = ragg::agg_tiff, width = 183, height = 141.78, units = &quot;mm&quot;, dpi = 600, compression = &quot;lzw&quot;, bg = &quot;white&quot;)
+</code></pre></details><small>归档路径：code/user_supplied/SC43/Fig4F_AH-like_step_by_step.R<br>SHA-256: a7bea26270427f55e3c2157ae1f1d2011e8b0b5884017f7db5c2879b81928257</small></section><h2>原文代码与提示词片段</h2><p>万里挑一的功能富集玫瑰图：GPT-6.1 Sol还是抗打的！ · 1 个片段</p><p>正文仅公开提示词、命令或说明</p><details><summary>原文片段 1 · text · 提示词／说明</summary><pre><code>logfoldchanges &gt; 0
         ↓
 按差异表达 score 降序排列
         ↓

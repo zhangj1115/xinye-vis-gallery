@@ -1,0 +1,17 @@
+{
+  "version": "0.7.0",
+  "cases": 91,
+  "capabilities": {
+    "direct_render": 91,
+    "agent_adaptation": 0,
+    "needs_materials": 0
+  },
+  "redactions": [
+    {
+      "path": "recipes/BK07.html",
+      "private_key_blocks_removed": 2
+    }
+  ],
+  "case_sensitive_links": "passed",
+  "source_policy": "Original archives untouched; redaction applies only to public copies."
+}
