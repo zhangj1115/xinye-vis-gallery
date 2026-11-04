@@ -1,8 +1,8 @@
 {
-  "version": "0.7.0",
-  "cases": 91,
+  "version": "0.8.0",
+  "cases": 93,
   "capabilities": {
-    "direct_render": 91,
+    "direct_render": 93,
     "agent_adaptation": 0,
     "needs_materials": 0
   },

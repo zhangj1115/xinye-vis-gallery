@@ -1,0 +1,163 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BK37 · 带凸包与样本标签的 PCA 图</title><style>body{max-width:1100px;margin:40px auto;padding:0 20px;color:#233d4d;background:#f8fbfa;font:16px/1.75 system-ui,sans-serif}a{color:#1c6b68}h1{font-size:28px}details{background:white;border:1px solid #dae5e2;padding:16px;margin:16px 0;border-radius:10px}summary{cursor:pointer;font-weight:600}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf3f2;padding:20px;font:14px/1.7 ui-monospace,monospace}.hash{font:12px/1.7 ui-monospace,monospace;overflow-wrap:anywhere}</style><a href="../index.html?category=bulk#BK37">← 返回图册</a><h1>BK37 · 带凸包与样本标签的 PCA 图</h1><p>教程署名：用户本机案例（Codex 辅助编写）；2026-11-03</p><p>原脚本已归档；论文作者代码未获得。论文及 GEO 数据遵循各自来源条款；不声明原论文代码许可。</p><section class="figure-source" aria-label="图来源"><div class="figure-source-head"><span class="source-label">图来源</span><span class="journal-name">Nature Communications</span><span class="date">发表时间：2022-04-13</span></div><p class="paper-title"><a href="https://doi.org/10.1038/s41467-022-29659-w" target="_blank" rel="noopener noreferrer">Sympathetic axonal sprouting induces changes in macrophage populations and protects against pancreatic cancer</a></p></section><h2>案例说明与使用方法</h2><pre># BK37 带凸包与样本标签的 PCA 图
+
+参考 Guillot 等，Nature Communications (2022)，doi:10.1038/s41467-022-29659-w，Fig. 4h 的图形样式。原图为胰腺组织 ROI 的形态学 PCA，并非 bulk RNA-seq。未获得论文作者完整绘图代码；归档的是本机 Codex 辅助生成的逐步 R 复现脚本，不能称为论文作者实现。
+
+## 输入契约
+
+scores：每行一个真实样本，必需 sample（唯一非空 ID）、label（显示标签）、group（真实分组）、PC1、PC2（有限数值）。保留其他元数据列。
+variance：PC、variance_percent；PC1 与 PC2 各一行，其他主成分可保留。数值是相应 PCA 的解释方差百分数（0–100，不是 0–1 比例），总和不得超过 100；必须来自与 scores 相同的 PCA，不会从二维坐标猜测解释方差。
+支持 CSV、TSV、XLSX，显式 column_map。支持 2–4 组，不自动分组、不重新聚类、不移动坐标。颜色/形状按 group_order（默认输入首次出现顺序）对应；默认青蓝圆点、橙红三角、金黄方块、紫色菱形。各组至少三个不共线点才能绘制凸包；否则只显示点与标签并返回提示。凸包是点的几何范围，不是置信区间。
+
+## 实例与分析参数
+
+固定示例为真实 GSE142279：20 对结直肠肿瘤/癌旁正常，40 个样本全部保留。NCBI 生成 TPM 按 GeneID 对齐 GRCh38.p13 注释，并用 GEO SOFT 的 tissue 字段核实样本。保留至少 10 个样本 TPM &gt;=0.2 的基因，log2(TPM+1)，按方差选前 2,000 基因，prcomp 样本为行、center=TRUE、scale.=FALSE。无患者效应校正，无离群值剔除。39,376 个基因中 21,563 个通过过滤；PC1=39.782230%，PC2=25.453520%。RC2_T（GSM4224326）保留。
+
+绘图 MCP 只接受已有 PCA 结果，不重新执行以上分析。完整数据、分组、基因表、PCA 对象及简洁逐步分析脚本在 data/BK37/；从该目录执行 Rscript --vanilla run_analysis.R。原样归档脚本 code/user_supplied/BK37/Fig4h_TPM_PCA.R 中保留原工作路径；可运行副本仅修改 project_dir 为当前目录。
+
+## 输出和样式
+
+默认 8.4×6.8 英寸、300 dpi（2520×2040 像素），PDF/SVG/PNG；同色半透明凸包、样本标签、浅灰网格、右侧图例，真实解释方差，无标题/图注。输入与派生坐标、凸包顶点、解析后参数、字体和软件版本、来源、完整绘图入口 plot.R/rerun.R 一起保存。字号 font_size=11 是保持本例字号层级的基准倍率，图内基础文字为 15 pt。
+
+先 get_method(&quot;BK37&quot;)，再 validate_inputs 和 render_plot；render_example(&quot;BK37&quot;) 运行真实 GEO 示例。不得为增强分离删除样本、按分组挑选基因或调整坐标。论文原图、原始截图与 GSE142279 示例在图册分别标注。
+</pre><h2>原始文件</h2><p>以下文件按原始字节归档；MCP 适配代码另存，未覆盖作者代码。HTML 仅提供下载，不在此页执行。</p><details><summary>Fig4h_TPM_PCA.R</summary><p><a href="data:application/octet-stream;base64,IyBHU0UxNDIyNznvvJpUUE0gUENB77yM5Y+C6ICDIE5hdHVyZSBDb21tdW5pY2F0aW9ucyBGaWcuIDRoIOeahOe7mOWbvuagt+W8jwojIOS7juS4iuWIsOS4i+mAkOautei/kOihjO+8m+WmguaenOmhueebruaQrOWutu+8jOWPquS/ruaUueS4i+S4gOihjOOAggpwcm9qZWN0X2RpciA8LSAiL1ZvbHVtZXMvUG9ydGFibGVTU0QgMS8wMDItYmlvdHJhaW5lZS8wNC3nu5jlm77lsI/mioDlt6cvRjIwMjQwMzAzLVBDQeWbviIKCiMgMS4g5Yqg6L295YyF77yM5YeG5aSH5paH5Lu26Lev5b6ECmxpYnJhcnkoZ2dwbG90MikKbGlicmFyeShnZ3JlcGVsKQpsaWJyYXJ5KHJhZ2cpCnNldC5zZWVkKDE0MjI3OSkKCmRhdGFfZGlyIDwtIGZpbGUucGF0aChwcm9qZWN0X2RpciwgIkdTRTE0MjI3OV9OQ0JJX2dlbmVyYXRlZCIpCndvcmtfZGlyIDwtIGZpbGUucGF0aChwcm9qZWN0X2RpciwgIkZpZzRoX0dTRTE0MjI3OV9SIikKb3V0cHV0X2RpciA8LSBmaWxlLnBhdGgod29ya19kaXIsICJyZXN1bHRzIikKZGlyLmNyZWF0ZShvdXRwdXRfZGlyLCBzaG93V2FybmluZ3MgPSBGQUxTRSkKCnRwbV9maWxlIDwtIGZpbGUucGF0aChkYXRhX2RpciwgIkdTRTE0MjI3OV9ub3JtX2NvdW50c19UUE1fR1JDaDM4LnAxM19OQ0JJLnRzdi5neiIpCmFubm90YXRpb25fZmlsZSA8LSBmaWxlLnBhdGgoZGF0YV9kaXIsICJIdW1hbi5HUkNoMzgucDEzLmFubm90LnRzdi5neiIpCnNvZnRfZmlsZSA8LSBmaWxlLnBhdGgod29ya19kaXIsICJtZXRhZGF0YSIsICJHU0UxNDIyNzlfZmFtaWx5LnNvZnQuZ3oiKQoKIyAyLiDor7vlj5YgVFBNIOWSjOWfuuWboOazqOmHigp0cG1fdGFibGUgPC0gcmVhZC5kZWxpbSh0cG1fZmlsZSwgY2hlY2submFtZXMgPSBGQUxTRSkKYW5ub3RhdGlvbiA8LSByZWFkLmRlbGltKGFubm90YXRpb25fZmlsZSwgY2hlY2submFtZXMgPSBGQUxTRSwgcXVvdGUgPSAiIiwgY29tbWVudC5jaGFyID0gIiIpCnRwbSA8LSBhcy5tYXRyaXgodHBtX3RhYmxlWywgLTFdKQpzdG9yYWdlLm1vZGUodHBtKSA8LSAiZG91YmxlIgpyb3duYW1lcyh0cG0pIDwtIGFzLmNoYXJhY3Rlcih0cG1fdGFibGUkR2VuZUlEKQphbm5vdGF0aW9uJEdlbmVJRCA8LSBhcy5jaGFyYWN0ZXIoYW5ub3RhdGlvbiRHZW5lSUQpCmFubm90YXRpb24gPC0gYW5ub3RhdGlvblttYXRjaChyb3duYW1lcyh0cG0pLCBhbm5vdGF0aW9uJEdlbmVJRCksIF0Kc3RvcGlmbm90KGlkZW50aWNhbChhbm5vdGF0aW9uJEdlbmVJRCwgcm93bmFtZXModHBtKSksIG5jb2wodHBtKSA9PSA0MCkKCiMgMy4g6K+75Y+WIEdFTyDlhYPmlbDmja7vvIzmjIkgR1NNIOWvuem9kO+8m+avj+S9jeaCo+iAheacieato+W4uOWSjOiCv+eYpOWQhOS4gOS4quagt+acrApzb2Z0IDwtIHJlYWRMaW5lcyhnemZpbGUoc29mdF9maWxlKSwgd2FybiA9IEZBTFNFKQpzYW1wbGVfaWRzIDwtIHN1YigiXlxcXlNBTVBMRSA9ICIsICIiLCBncmVwKCJeXFxeU0FNUExFID0gIiwgc29mdCwgdmFsdWUgPSBUUlVFKSkKc2FtcGxlX3RpdGxlcyA8LSBzdWIoIl4hU2FtcGxlX3RpdGxlID0gIiwgIiIsIGdyZXAoIl4hU2FtcGxlX3RpdGxlID0gIiwgc29mdCwgdmFsdWUgPSBUUlVFKSkKdGlzc3VlcyA8LSBzdWIoIl4hU2FtcGxlX2NoYXJhY3RlcmlzdGljc19jaDEgPSB0aXNzdWU6ICIsICIiLAogICAgICAgICAgICAgICBncmVwKCJeIVNhbXBsZV9jaGFyYWN0ZXJpc3RpY3NfY2gxID0gdGlzc3VlOiAiLCBzb2Z0LCB2YWx1ZSA9IFRSVUUpKQphbGxfc2FtcGxlcyA8LSBkYXRhLmZyYW1lKEdTTSA9IHNhbXBsZV9pZHMsIEdFT190aXRsZSA9IHNhbXBsZV90aXRsZXMsIHRpc3N1ZSA9IHRpc3N1ZXMpCmFsbF9zYW1wbGVzJHBhdGllbnQgPC0gc3ViKCJfW05UXSQiLCAiIiwgYWxsX3NhbXBsZXMkR0VPX3RpdGxlKQphbGxfc2FtcGxlcyRncm91cCA8LSBpZmVsc2UoYWxsX3NhbXBsZXMkdGlzc3VlID09ICJ0dW1vciIsICJDb2xvcmVjdGFsIHR1bW9yIiwgIkFkamFjZW50IG5vcm1hbCIpCmFsbF9zYW1wbGVzJGxhYmVsIDwtIGFsbF9zYW1wbGVzJEdFT190aXRsZQpzYW1wbGVzIDwtIGFsbF9zYW1wbGVzW21hdGNoKGNvbG5hbWVzKHRwbSksIGFsbF9zYW1wbGVzJEdTTSksIF0Kc2FtcGxlcyRncm91cCA8LSBmYWN0b3Ioc2FtcGxlcyRncm91cCwgbGV2ZWxzID0gYygiQWRqYWNlbnQgbm9ybWFsIiwgIkNvbG9yZWN0YWwgdHVtb3IiKSkKc3RvcGlmbm90KGlkZW50aWNhbChzYW1wbGVzJEdTTSwgY29sbmFtZXModHBtKSksCiAgICAgICAgICBpZGVudGljYWwoYXMuaW50ZWdlcih0YWJsZShzYW1wbGVzJGdyb3VwKSksIGMoMjBMLCAyMEwpKSwKICAgICAgICAgIGFsbCh0YWJsZShzYW1wbGVzJHBhdGllbnQpID09IDJMKSkKd3JpdGUuY3N2KHNhbXBsZXMsIGZpbGUucGF0aChvdXRwdXRfZGlyLCAic2FtcGxlX21ldGFkYXRhLmNzdiIpLCByb3cubmFtZXMgPSBGQUxTRSkKd3JpdGUuY3N2KGFsbF9zYW1wbGVzWyFhbGxfc2FtcGxlcyRHU00gJWluJSBjb2xuYW1lcyh0cG0pLCBdLAogICAgICAgICAgZmlsZS5wYXRoKG91dHB1dF9kaXIsICJHRU9fc2FtcGxlc19hYnNlbnRfZnJvbV9OQ0JJX21hdHJpeC5jc3YiKSwgcm93Lm5hbWVzID0gRkFMU0UpCgojIDQuIFRQTSDov4fmu6TjgIHovazmjaLvvIzpgInmlrnlt67mnIDpq5jnmoQgMiwwMDAg5Liq5Z+65ZugCnNhbXBsZXNfYWJvdmVfY3V0b2ZmIDwtIHJvd1N1bXModHBtID49IDAuMikKa2VlcCA8LSBzYW1wbGVzX2Fib3ZlX2N1dG9mZiA+PSAxMApsb2dfdHBtIDwtIGxvZzIodHBtW2tlZXAsIF0gKyAxKQpnZW5lX3ZhcmlhbmNlIDwtIGFwcGx5KGxvZ190cG0sIDEsIHZhcikKcmFua2VkX2dlbmVzIDwtIG9yZGVyKC1nZW5lX3ZhcmlhbmNlLCByb3duYW1lcyhsb2dfdHBtKSkKc2VsZWN0ZWRfaWRzIDwtIHJvd25hbWVzKGxvZ190cG0pW2hlYWQocmFua2VkX2dlbmVzLCAyMDAwKV0KcGNhX2lucHV0IDwtIHQobG9nX3RwbVtzZWxlY3RlZF9pZHMsIF0pCgpmaWx0ZXJfdGFibGUgPC0gZGF0YS5mcmFtZShHZW5lSUQgPSByb3duYW1lcyh0cG0pLCBTeW1ib2wgPSBhbm5vdGF0aW9uJFN5bWJvbCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgc2FtcGxlc19UUE1fZ2VfMC4yID0gc2FtcGxlc19hYm92ZV9jdXRvZmYsCiAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhc3Nlc19leHByZXNzaW9uX2ZpbHRlciA9IGtlZXAsCiAgICAgICAgICAgICAgICAgICAgICAgICAgIHNlbGVjdGVkX2Zvcl9QQ0EgPSByb3duYW1lcyh0cG0pICVpbiUgc2VsZWN0ZWRfaWRzKQp3cml0ZS5jc3YoZmlsdGVyX3RhYmxlLCBmaWxlLnBhdGgob3V0cHV0X2RpciwgImdlbmVfZmlsdGVyX3N1bW1hcnkuY3N2IiksIHJvdy5uYW1lcyA9IEZBTFNFKQpzZWxlY3RlZF9nZW5lcyA8LSBhbm5vdGF0aW9uW21hdGNoKHNlbGVjdGVkX2lkcywgYW5ub3RhdGlvbiRHZW5lSUQpLCBdCnNlbGVjdGVkX2dlbmVzJHZhcmlhbmNlX2xvZzJfVFBNX3BsdXNfMSA8LSBnZW5lX3ZhcmlhbmNlW3NlbGVjdGVkX2lkc10Kc2VsZWN0ZWRfZ2VuZXMkdmFyaWFuY2VfcmFuayA8LSBzZXFfYWxvbmcoc2VsZWN0ZWRfaWRzKQp3cml0ZS5jc3Yoc2VsZWN0ZWRfZ2VuZXMsIGZpbGUucGF0aChvdXRwdXRfZGlyLCAic2VsZWN0ZWRfZ2VuZXMuY3N2IiksIHJvdy5uYW1lcyA9IEZBTFNFKQoKIyA1LiBQQ0HvvJrmoLfmnKzkuLrooYzvvIzln7rlm6DkuLrliJfvvJvkuK3lv4PljJbvvIzkuI3mjInln7rlm6DmoIflh4blt67nvKnmlL4KcGNhIDwtIHByY29tcChwY2FfaW5wdXQsIGNlbnRlciA9IFRSVUUsIHNjYWxlLiA9IEZBTFNFKQp2YXJpYW5jZV9mcmFjdGlvbiA8LSBwY2Ekc2Rldl4yIC8gc3VtKHBjYSRzZGV2XjIpCmV4cGxhaW5lZCA8LSBkYXRhLmZyYW1lKFBDID0gcGFzdGUwKCJQQyIsIHNlcV9hbG9uZyh2YXJpYW5jZV9mcmFjdGlvbikpLAogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW5jZV9mcmFjdGlvbiA9IHZhcmlhbmNlX2ZyYWN0aW9uLAogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW5jZV9wZXJjZW50ID0gMTAwICogdmFyaWFuY2VfZnJhY3Rpb24sCiAgICAgICAgICAgICAgICAgICAgICAgIGN1bXVsYXRpdmVfcGVyY2VudCA9IDEwMCAqIGN1bXN1bSh2YXJpYW5jZV9mcmFjdGlvbikpCnNjb3JlcyA8LSBjYmluZChzYW1wbGVzLCBhcy5kYXRhLmZyYW1lKHBjYSR4KSkKd3JpdGUuY3N2KHNjb3JlcywgZmlsZS5wYXRoKG91dHB1dF9kaXIsICJQQ0Ffc2FtcGxlX3Njb3Jlcy5jc3YiKSwgcm93Lm5hbWVzID0gRkFMU0UpCndyaXRlLmNzdihleHBsYWluZWQsIGZpbGUucGF0aChvdXRwdXRfZGlyLCAiUENBX2V4cGxhaW5lZF92YXJpYW5jZS5jc3YiKSwgcm93Lm5hbWVzID0gRkFMU0UpCndyaXRlLmNzdihkYXRhLmZyYW1lKEdlbmVJRCA9IHJvd25hbWVzKHBjYSRyb3RhdGlvbiksIHBjYSRyb3RhdGlvbiwgY2hlY2submFtZXMgPSBGQUxTRSksCiAgICAgICAgICBmaWxlLnBhdGgob3V0cHV0X2RpciwgIlBDQV9nZW5lX2xvYWRpbmdzLmNzdiIpLCByb3cubmFtZXMgPSBGQUxTRSkKc2F2ZVJEUyhwY2EsIGZpbGUucGF0aChvdXRwdXRfZGlyLCAiUENBX29iamVjdC5yZHMiKSkKc2F2ZVJEUyhsaXN0KGlucHV0ID0gcGNhX2lucHV0LCBtZXRhZGF0YSA9IHNhbXBsZXMsCiAgICAgICAgICAgICBwYXJhbWV0ZXJzID0gbGlzdCh0cG1fY3V0b2ZmID0gMC4yLCBtaW5fc2FtcGxlcyA9IDEwLCB0b3BfbiA9IDIwMDAsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0cmFuc2Zvcm0gPSAibG9nMihUUE0gKyAxKSIsIGNlbnRlciA9IFRSVUUsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZSA9IEZBTFNFLCBwYXRpZW50X2NvcnJlY3Rpb24gPSBGQUxTRSkpLAogICAgICAgIGZpbGUucGF0aChvdXRwdXRfZGlyLCAiUENBX2lucHV0c19hbmRfcGFyYW1ldGVycy5yZHMiKSkKCiMgNi4g57uY5Zu+77ya57uE5YaF5Ye45YyF44CB5qC35pys5qCH562+44CB5Y6f5aeLIFBDIOWdkOaghwpodWxsX25vcm1hbCA8LSBzY29yZXNbc2NvcmVzJGdyb3VwID09ICJBZGphY2VudCBub3JtYWwiLCBdCmh1bGxfbm9ybWFsIDwtIGh1bGxfbm9ybWFsW2NodWxsKGh1bGxfbm9ybWFsJFBDMSwgaHVsbF9ub3JtYWwkUEMyKSwgXQpodWxsX3R1bW9yIDwtIHNjb3Jlc1tzY29yZXMkZ3JvdXAgPT0gIkNvbG9yZWN0YWwgdHVtb3IiLCBdCmh1bGxfdHVtb3IgPC0gaHVsbF90dW1vcltjaHVsbChodWxsX3R1bW9yJFBDMSwgaHVsbF90dW1vciRQQzIpLCBdCmh1bGxzIDwtIHJiaW5kKGh1bGxfbm9ybWFsLCBodWxsX3R1bW9yKQpjb2xvcnMgPC0gYygiQWRqYWNlbnQgbm9ybWFsIiA9ICIjNDlCQ0NCIiwgIkNvbG9yZWN0YWwgdHVtb3IiID0gIiNGRjc5NTAiKQpzaGFwZXMgPC0gYygiQWRqYWNlbnQgbm9ybWFsIiA9IDE2LCAiQ29sb3JlY3RhbCB0dW1vciIgPSAxNykKCmZpZ3VyZSA8LSBnZ3Bsb3Qoc2NvcmVzLCBhZXMoUEMxLCBQQzIsIGNvbG9yID0gZ3JvdXApKSArCiAgZ2VvbV9wb2x5Z29uKGRhdGEgPSBodWxscywgYWVzKGZpbGwgPSBncm91cCwgZ3JvdXAgPSBncm91cCksCiAgICAgICAgICAgICAgIGFscGhhID0gMC4xNCwgbGluZXdpZHRoID0gMC44NSwgc2hvdy5sZWdlbmQgPSBGQUxTRSkgKwogIGdlb21fcG9pbnQoYWVzKHNoYXBlID0gZ3JvdXApLCBzaXplID0gMy4xLCBhbHBoYSA9IDAuODUpICsKICBnZW9tX3RleHRfcmVwZWwoYWVzKGxhYmVsID0gbGFiZWwpLCBzaXplID0gMywgc2VlZCA9IDE0MjI3OSwKICAgICAgICAgICAgICAgICAgYm94LnBhZGRpbmcgPSAwLjQsIHBvaW50LnBhZGRpbmcgPSAwLjIyLAogICAgICAgICAgICAgICAgICBtaW4uc2VnbWVudC5sZW5ndGggPSAwLCBzZWdtZW50LmFscGhhID0gMC40NSwKICAgICAgICAgICAgICAgICAgc2VnbWVudC5zaXplID0gMC4yNSwgbWF4Lm92ZXJsYXBzID0gSW5mLAogICAgICAgICAgICAgICAgICBtYXguaXRlciA9IDEwMDAwMCwgbWF4LnRpbWUgPSBJbmYsIHNob3cubGVnZW5kID0gRkFMU0UpICsKICBzY2FsZV9jb2xvcl9tYW51YWwodmFsdWVzID0gY29sb3JzLCBuYW1lID0gTlVMTCkgKwogIHNjYWxlX2ZpbGxfbWFudWFsKHZhbHVlcyA9IGNvbG9ycywgbmFtZSA9IE5VTEwpICsKICBzY2FsZV9zaGFwZV9tYW51YWwodmFsdWVzID0gc2hhcGVzLCBuYW1lID0gTlVMTCkgKwogIHNjYWxlX3hfY29udGludW91cyhleHBhbmQgPSBleHBhbnNpb24obXVsdCA9IDAuMTQpKSArCiAgc2NhbGVfeV9jb250aW51b3VzKGV4cGFuZCA9IGV4cGFuc2lvbihtdWx0ID0gMC4xNCkpICsKICBsYWJzKHggPSBzcHJpbnRmKCJEaW0xICglLjFmJSUpIiwgZXhwbGFpbmVkJHZhcmlhbmNlX3BlcmNlbnRbMV0pLAogICAgICAgeSA9IHNwcmludGYoIkRpbTIgKCUuMWYlJSkiLCBleHBsYWluZWQkdmFyaWFuY2VfcGVyY2VudFsyXSkpICsKICBjb29yZF9jYXJ0ZXNpYW4oY2xpcCA9ICJvZmYiKSArCiAgdGhlbWVfYncoYmFzZV9zaXplID0gMTUsIGJhc2VfZmFtaWx5ID0gInNhbnMiKSArCiAgdGhlbWUoYXNwZWN0LnJhdGlvID0gMSwgcGFuZWwuYm9yZGVyID0gZWxlbWVudF9ibGFuaygpLAogICAgICAgIHBhbmVsLmdyaWQubWFqb3IgPSBlbGVtZW50X2xpbmUoY29sb3IgPSAiI0U4RThFOCIsIGxpbmV3aWR0aCA9IDAuNiksCiAgICAgICAgcGFuZWwuZ3JpZC5taW5vciA9IGVsZW1lbnRfbGluZShjb2xvciA9ICIjRjBGMEYwIiwgbGluZXdpZHRoID0gMC4zNSksCiAgICAgICAgYXhpcy50aWNrcyA9IGVsZW1lbnRfYmxhbmsoKSwgYXhpcy50ZXh0ID0gZWxlbWVudF90ZXh0KGNvbG9yID0gIiM1NTU1NTUiKSwKICAgICAgICBheGlzLnRpdGxlID0gZWxlbWVudF90ZXh0KGNvbG9yID0gIiM1NTU1NTUiKSwKICAgICAgICBsZWdlbmQucG9zaXRpb24gPSAicmlnaHQiLCBsZWdlbmQudGV4dCA9IGVsZW1lbnRfdGV4dChzaXplID0gMTIpLAogICAgICAgIGxlZ2VuZC5rZXkgPSBlbGVtZW50X3JlY3QoZmlsbCA9ICJ3aGl0ZSIsIGNvbG9yID0gTkEpLAogICAgICAgIGxlZ2VuZC5rZXkuaGVpZ2h0ID0gZ3JpZDo6dW5pdCgwLjgsICJjbSIpLAogICAgICAgIHBsb3QubWFyZ2luID0gbWFyZ2luKDE4LCAxOCwgMTgsIDE4KSkgKwogIGd1aWRlcyhjb2xvciA9IGd1aWRlX2xlZ2VuZChvdmVycmlkZS5hZXMgPSBsaXN0KHNpemUgPSA0LCBhbHBoYSA9IDEpKSkKCmdnc2F2ZShmaWxlLnBhdGgob3V0cHV0X2RpciwgIkZpZzRoX1RQTV9QQ0EucG5nIiksIGZpZ3VyZSwKICAgICAgIHdpZHRoID0gOC40LCBoZWlnaHQgPSA2LjgsIHVuaXRzID0gImluIiwgZHBpID0gMzAwLAogICAgICAgZGV2aWNlID0gcmFnZzo6YWdnX3BuZywgYmcgPSAid2hpdGUiKQpnZ3NhdmUoZmlsZS5wYXRoKG91dHB1dF9kaXIsICJGaWc0aF9UUE1fUENBLnBkZiIpLCBmaWd1cmUsCiAgICAgICB3aWR0aCA9IDguNCwgaGVpZ2h0ID0gNi44LCB1bml0cyA9ICJpbiIsIGRldmljZSA9IGNhaXJvX3BkZiwgYmcgPSAid2hpdGUiKQoKIyA3LiDkv53lrZjov5DooYzorrDlvZUKd3JpdGVMaW5lcyhjKHBhc3RlKCJJbnB1dCBnZW5lczoiLCBucm93KHRwbSkpLCBwYXN0ZSgiU2FtcGxlczoiLCBuY29sKHRwbSkpLAogICAgICAgICAgICAgcGFzdGUoIkdlbmVzIHBhc3NpbmcgVFBNIGZpbHRlcjoiLCBzdW0oa2VlcCkpLAogICAgICAgICAgICAgcGFzdGUoIlNlbGVjdGVkIGdlbmVzOiIsIGxlbmd0aChzZWxlY3RlZF9pZHMpKSwKICAgICAgICAgICAgIHNwcmludGYoIlBDMTogJS42ZiUlOyBQQzI6ICUuNmYlJSIsCiAgICAgICAgICAgICAgICAgICAgIGV4cGxhaW5lZCR2YXJpYW5jZV9wZXJjZW50WzFdLCBleHBsYWluZWQkdmFyaWFuY2VfcGVyY2VudFsyXSkpLAogICAgICAgICAgIGZpbGUucGF0aChvdXRwdXRfZGlyLCAiYW5hbHlzaXNfc3VtbWFyeS50eHQiKSkKd3JpdGVMaW5lcyhjYXB0dXJlLm91dHB1dChzZXNzaW9uSW5mbygpKSwgZmlsZS5wYXRoKG91dHB1dF9kaXIsICJzZXNzaW9uSW5mby50eHQiKSkKY2hlY2tzdW1zIDwtIHRvb2xzOjptZDVzdW0oYyh0cG1fZmlsZSwgYW5ub3RhdGlvbl9maWxlLCBzb2Z0X2ZpbGUpKQp3cml0ZS5jc3YoZGF0YS5mcmFtZShmaWxlID0gbmFtZXMoY2hlY2tzdW1zKSwgbWQ1ID0gdW5uYW1lKGNoZWNrc3VtcykpLAogICAgICAgICAgZmlsZS5wYXRoKG91dHB1dF9kaXIsICJpbnB1dF9jaGVja3N1bXMuY3N2IiksIHJvdy5uYW1lcyA9IEZBTFNFKQo=" download="Fig4h_TPM_PCA.R">下载原文件</a></p><p class="hash">SHA-256: dcedaf607110e905d6894f5adc971b4f23e3f50530821e8f5e31bff48a2eb376</p><pre><code># GSE142279：TPM PCA，参考 Nature Communications Fig. 4h 的绘图样式
+# 从上到下逐段运行；如果项目搬家，只修改下一行。
+project_dir &lt;- &quot;/Volumes/PortableSSD 1/002-biotrainee/04-绘图小技巧/F20240303-PCA图&quot;
+
+# 1. 加载包，准备文件路径
+library(ggplot2)
+library(ggrepel)
+library(ragg)
+set.seed(142279)
+
+data_dir &lt;- file.path(project_dir, &quot;GSE142279_NCBI_generated&quot;)
+work_dir &lt;- file.path(project_dir, &quot;Fig4h_GSE142279_R&quot;)
+output_dir &lt;- file.path(work_dir, &quot;results&quot;)
+dir.create(output_dir, showWarnings = FALSE)
+
+tpm_file &lt;- file.path(data_dir, &quot;GSE142279_norm_counts_TPM_GRCh38.p13_NCBI.tsv.gz&quot;)
+annotation_file &lt;- file.path(data_dir, &quot;Human.GRCh38.p13.annot.tsv.gz&quot;)
+soft_file &lt;- file.path(work_dir, &quot;metadata&quot;, &quot;GSE142279_family.soft.gz&quot;)
+
+# 2. 读取 TPM 和基因注释
+tpm_table &lt;- read.delim(tpm_file, check.names = FALSE)
+annotation &lt;- read.delim(annotation_file, check.names = FALSE, quote = &quot;&quot;, comment.char = &quot;&quot;)
+tpm &lt;- as.matrix(tpm_table[, -1])
+storage.mode(tpm) &lt;- &quot;double&quot;
+rownames(tpm) &lt;- as.character(tpm_table$GeneID)
+annotation$GeneID &lt;- as.character(annotation$GeneID)
+annotation &lt;- annotation[match(rownames(tpm), annotation$GeneID), ]
+stopifnot(identical(annotation$GeneID, rownames(tpm)), ncol(tpm) == 40)
+
+# 3. 读取 GEO 元数据，按 GSM 对齐；每位患者有正常和肿瘤各一个样本
+soft &lt;- readLines(gzfile(soft_file), warn = FALSE)
+sample_ids &lt;- sub(&quot;^\\^SAMPLE = &quot;, &quot;&quot;, grep(&quot;^\\^SAMPLE = &quot;, soft, value = TRUE))
+sample_titles &lt;- sub(&quot;^!Sample_title = &quot;, &quot;&quot;, grep(&quot;^!Sample_title = &quot;, soft, value = TRUE))
+tissues &lt;- sub(&quot;^!Sample_characteristics_ch1 = tissue: &quot;, &quot;&quot;,
+               grep(&quot;^!Sample_characteristics_ch1 = tissue: &quot;, soft, value = TRUE))
+all_samples &lt;- data.frame(GSM = sample_ids, GEO_title = sample_titles, tissue = tissues)
+all_samples$patient &lt;- sub(&quot;_[NT]$&quot;, &quot;&quot;, all_samples$GEO_title)
+all_samples$group &lt;- ifelse(all_samples$tissue == &quot;tumor&quot;, &quot;Colorectal tumor&quot;, &quot;Adjacent normal&quot;)
+all_samples$label &lt;- all_samples$GEO_title
+samples &lt;- all_samples[match(colnames(tpm), all_samples$GSM), ]
+samples$group &lt;- factor(samples$group, levels = c(&quot;Adjacent normal&quot;, &quot;Colorectal tumor&quot;))
+stopifnot(identical(samples$GSM, colnames(tpm)),
+          identical(as.integer(table(samples$group)), c(20L, 20L)),
+          all(table(samples$patient) == 2L))
+write.csv(samples, file.path(output_dir, &quot;sample_metadata.csv&quot;), row.names = FALSE)
+write.csv(all_samples[!all_samples$GSM %in% colnames(tpm), ],
+          file.path(output_dir, &quot;GEO_samples_absent_from_NCBI_matrix.csv&quot;), row.names = FALSE)
+
+# 4. TPM 过滤、转换，选方差最高的 2,000 个基因
+samples_above_cutoff &lt;- rowSums(tpm &gt;= 0.2)
+keep &lt;- samples_above_cutoff &gt;= 10
+log_tpm &lt;- log2(tpm[keep, ] + 1)
+gene_variance &lt;- apply(log_tpm, 1, var)
+ranked_genes &lt;- order(-gene_variance, rownames(log_tpm))
+selected_ids &lt;- rownames(log_tpm)[head(ranked_genes, 2000)]
+pca_input &lt;- t(log_tpm[selected_ids, ])
+
+filter_table &lt;- data.frame(GeneID = rownames(tpm), Symbol = annotation$Symbol,
+                           samples_TPM_ge_0.2 = samples_above_cutoff,
+                           passes_expression_filter = keep,
+                           selected_for_PCA = rownames(tpm) %in% selected_ids)
+write.csv(filter_table, file.path(output_dir, &quot;gene_filter_summary.csv&quot;), row.names = FALSE)
+selected_genes &lt;- annotation[match(selected_ids, annotation$GeneID), ]
+selected_genes$variance_log2_TPM_plus_1 &lt;- gene_variance[selected_ids]
+selected_genes$variance_rank &lt;- seq_along(selected_ids)
+write.csv(selected_genes, file.path(output_dir, &quot;selected_genes.csv&quot;), row.names = FALSE)
+
+# 5. PCA：样本为行，基因为列；中心化，不按基因标准差缩放
+pca &lt;- prcomp(pca_input, center = TRUE, scale. = FALSE)
+variance_fraction &lt;- pca$sdev^2 / sum(pca$sdev^2)
+explained &lt;- data.frame(PC = paste0(&quot;PC&quot;, seq_along(variance_fraction)),
+                        variance_fraction = variance_fraction,
+                        variance_percent = 100 * variance_fraction,
+                        cumulative_percent = 100 * cumsum(variance_fraction))
+scores &lt;- cbind(samples, as.data.frame(pca$x))
+write.csv(scores, file.path(output_dir, &quot;PCA_sample_scores.csv&quot;), row.names = FALSE)
+write.csv(explained, file.path(output_dir, &quot;PCA_explained_variance.csv&quot;), row.names = FALSE)
+write.csv(data.frame(GeneID = rownames(pca$rotation), pca$rotation, check.names = FALSE),
+          file.path(output_dir, &quot;PCA_gene_loadings.csv&quot;), row.names = FALSE)
+saveRDS(pca, file.path(output_dir, &quot;PCA_object.rds&quot;))
+saveRDS(list(input = pca_input, metadata = samples,
+             parameters = list(tpm_cutoff = 0.2, min_samples = 10, top_n = 2000,
+                               transform = &quot;log2(TPM + 1)&quot;, center = TRUE,
+                               scale = FALSE, patient_correction = FALSE)),
+        file.path(output_dir, &quot;PCA_inputs_and_parameters.rds&quot;))
+
+# 6. 绘图：组内凸包、样本标签、原始 PC 坐标
+hull_normal &lt;- scores[scores$group == &quot;Adjacent normal&quot;, ]
+hull_normal &lt;- hull_normal[chull(hull_normal$PC1, hull_normal$PC2), ]
+hull_tumor &lt;- scores[scores$group == &quot;Colorectal tumor&quot;, ]
+hull_tumor &lt;- hull_tumor[chull(hull_tumor$PC1, hull_tumor$PC2), ]
+hulls &lt;- rbind(hull_normal, hull_tumor)
+colors &lt;- c(&quot;Adjacent normal&quot; = &quot;#49BCCB&quot;, &quot;Colorectal tumor&quot; = &quot;#FF7950&quot;)
+shapes &lt;- c(&quot;Adjacent normal&quot; = 16, &quot;Colorectal tumor&quot; = 17)
+
+figure &lt;- ggplot(scores, aes(PC1, PC2, color = group)) +
+  geom_polygon(data = hulls, aes(fill = group, group = group),
+               alpha = 0.14, linewidth = 0.85, show.legend = FALSE) +
+  geom_point(aes(shape = group), size = 3.1, alpha = 0.85) +
+  geom_text_repel(aes(label = label), size = 3, seed = 142279,
+                  box.padding = 0.4, point.padding = 0.22,
+                  min.segment.length = 0, segment.alpha = 0.45,
+                  segment.size = 0.25, max.overlaps = Inf,
+                  max.iter = 100000, max.time = Inf, show.legend = FALSE) +
+  scale_color_manual(values = colors, name = NULL) +
+  scale_fill_manual(values = colors, name = NULL) +
+  scale_shape_manual(values = shapes, name = NULL) +
+  scale_x_continuous(expand = expansion(mult = 0.14)) +
+  scale_y_continuous(expand = expansion(mult = 0.14)) +
+  labs(x = sprintf(&quot;Dim1 (%.1f%%)&quot;, explained$variance_percent[1]),
+       y = sprintf(&quot;Dim2 (%.1f%%)&quot;, explained$variance_percent[2])) +
+  coord_cartesian(clip = &quot;off&quot;) +
+  theme_bw(base_size = 15, base_family = &quot;sans&quot;) +
+  theme(aspect.ratio = 1, panel.border = element_blank(),
+        panel.grid.major = element_line(color = &quot;#E8E8E8&quot;, linewidth = 0.6),
+        panel.grid.minor = element_line(color = &quot;#F0F0F0&quot;, linewidth = 0.35),
+        axis.ticks = element_blank(), axis.text = element_text(color = &quot;#555555&quot;),
+        axis.title = element_text(color = &quot;#555555&quot;),
+        legend.position = &quot;right&quot;, legend.text = element_text(size = 12),
+        legend.key = element_rect(fill = &quot;white&quot;, color = NA),
+        legend.key.height = grid::unit(0.8, &quot;cm&quot;),
+        plot.margin = margin(18, 18, 18, 18)) +
+  guides(color = guide_legend(override.aes = list(size = 4, alpha = 1)))
+
+ggsave(file.path(output_dir, &quot;Fig4h_TPM_PCA.png&quot;), figure,
+       width = 8.4, height = 6.8, units = &quot;in&quot;, dpi = 300,
+       device = ragg::agg_png, bg = &quot;white&quot;)
+ggsave(file.path(output_dir, &quot;Fig4h_TPM_PCA.pdf&quot;), figure,
+       width = 8.4, height = 6.8, units = &quot;in&quot;, device = cairo_pdf, bg = &quot;white&quot;)
+
+# 7. 保存运行记录
+writeLines(c(paste(&quot;Input genes:&quot;, nrow(tpm)), paste(&quot;Samples:&quot;, ncol(tpm)),
+             paste(&quot;Genes passing TPM filter:&quot;, sum(keep)),
+             paste(&quot;Selected genes:&quot;, length(selected_ids)),
+             sprintf(&quot;PC1: %.6f%%; PC2: %.6f%%&quot;,
+                     explained$variance_percent[1], explained$variance_percent[2])),
+           file.path(output_dir, &quot;analysis_summary.txt&quot;))
+writeLines(capture.output(sessionInfo()), file.path(output_dir, &quot;sessionInfo.txt&quot;))
+checksums &lt;- tools::md5sum(c(tpm_file, annotation_file, soft_file))
+write.csv(data.frame(file = names(checksums), md5 = unname(checksums)),
+          file.path(output_dir, &quot;input_checksums.csv&quot;), row.names = FALSE)
+</code></pre></details></html>

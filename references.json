@@ -12484,5 +12484,193 @@
     },
     "image_aspect": 1.264775,
     "image_sha256": "1874dc51a9445d17f9597fd341e988e0a9f7643ea98c5716c7ea142b818ae8d3"
+  },
+  {
+    "number": 1210,
+    "figure": "Fig. 4h · 形态学 PCA（样式参考）",
+    "image": "assets/originals/BK37.png",
+    "example": "assets/examples/BK37.png",
+    "image_kind": "paper_figure_screenshot",
+    "image_label": "文献原图 · Fig. 4h",
+    "original_file": "paper/local_cases/BK37/figure_extracts/Fig4h.png",
+    "image_changes": "既有截图逐字节归档，未重绘；保留坐标轴、样本标签和全部三组图例",
+    "tutorials": [
+      {
+        "id": "BK37",
+        "title": "GSE142279 TPM PCA · 本地逐步 R 分析案例",
+        "url": "sources/BK37.html",
+        "author": "用户本机案例（Codex 辅助编写）",
+        "publisher": "本地分析案例",
+        "publish_time": "2026-11-03",
+        "status": "原脚本已归档；论文作者代码未获得",
+        "license": "论文及 GEO 数据遵循各自来源条款；不声明原论文代码许可",
+        "label": "案例与代码",
+        "kind": "local_archive"
+      }
+    ],
+    "note": "原文为形态学 PCA；示例使用 GSE142279 bulk RNA-seq，两者不同。",
+    "example_label": "GSE142279 · 真实 TPM 示例",
+    "example_note": "20 对结直肠肿瘤/癌旁正常；全部 40 个样本保留，无患者效应校正。",
+    "id": "BK37",
+    "title": "带凸包与样本标签的 PCA 图",
+    "category_id": "bulk",
+    "category": "bulk转录组",
+    "category_ids": [
+      "bulk"
+    ],
+    "entry_kind": "method",
+    "capability_status": "direct_render",
+    "capability_label": "可直接绘图",
+    "capability_note": "已有验证过的绘图入口；校验自己的输入后可调用 render_plot。",
+    "runnable": true,
+    "description": "GSE142279 肿瘤/癌旁正常 TPM PCA；参考 Nature Communications Fig.4h 样式，保持真实坐标与组间重叠。",
+    "citation": {
+      "title": "Sympathetic axonal sprouting induces changes in macrophage populations and protects against pancreatic cancer",
+      "journal": "Nature Communications",
+      "doi": "10.1038/s41467-022-29659-w",
+      "url": "https://doi.org/10.1038/s41467-022-29659-w",
+      "published_online": "2022-04-13",
+      "verification": "本地论文 PDF 与 Fig.4h 核对；Crossref 核对在线发表日期；仅作为图形风格参考",
+      "metadata_sources": [
+        "https://api.crossref.org/works/10.1038/s41467-022-29659-w"
+      ],
+      "license": "CC BY 4.0"
+    },
+    "tags": [
+      "PCA",
+      "主成分分析",
+      "凸包",
+      "bulk RNA-seq",
+      "TPM",
+      "GSE142279",
+      "肿瘤正常",
+      "样本标签",
+      "Fig4h"
+    ],
+    "aliases": [
+      "二维PCA",
+      "分组PCA",
+      "convex hull PCA"
+    ],
+    "required": {
+      "scores": [
+        "sample",
+        "label",
+        "group",
+        "PC1",
+        "PC2"
+      ],
+      "variance": [
+        "PC",
+        "variance_percent"
+      ]
+    },
+    "tutorial": {
+      "title": "GSE142279 TPM PCA · 本地逐步 R 分析案例",
+      "url": "sources/BK37.html",
+      "author": "用户本机案例（Codex 辅助编写）"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "本机既有 Codex 辅助复现脚本；非论文作者代码",
+    "agent_prompt": "请用 xinye-vis-mcp 的 BK37「带凸包与样本标签的 PCA 图」绘制 PCA 图。先 get_method，读取 scores（sample,label,group,PC1,PC2）与 variance（PC,variance_percent，0–100 百分数）的同一分析结果，路径为 请替换为我的结果文件绝对路径；核对列映射和真实分组，validate_inputs 后 render_plot。保留全部样本、原坐标和实际解释方差；凸包不是置信区间。使用青蓝圆点、橙红三角、金黄方块，样本标签、半透明凸包、右侧图例；默认 8.4×6.8 英寸、300 dpi，不加标题或图注，输出 PDF/SVG/PNG 和可独立重跑的 R 脚本。",
+    "display_ids": {
+      "bulk": "BK37"
+    },
+    "display_id": "BK37",
+    "plot_group_ids": {
+      "bulk": [
+        "pca"
+      ]
+    },
+    "image_aspect": 1.105386,
+    "image_sha256": "77c98f063218a162ff5d5a0ffdf9d79133cc6118c54a8b689b5f0ae566da635d"
+  },
+  {
+    "number": 1220,
+    "figure": "Fig. 6A · left three-set Venn only",
+    "image": "assets/originals/BK38.png",
+    "example": "assets/examples/BK38.png",
+    "image_kind": "paper_figure_extract",
+    "image_label": "文献原图 · Fig. 6A 左侧",
+    "original_file": "paper/local_cases/BK38/figure_extracts/Fig6A_left_venn.png",
+    "image_changes": "Cropped reference from local paper figure; archive bytes preserved",
+    "tutorials": [
+      {
+        "id": "BK38",
+        "title": "Chu et al. 2025 Fig. 6A left three-set Venn",
+        "url": "https://github.com/Cthfudan/hcc/blob/main/Fig6%26S11/Venn_diagram.R",
+        "author": "Chu et al. (paper code repository)",
+        "publisher": "GitHub Cthfudan/hcc",
+        "publish_time": "2025",
+        "status": "Author snippet archived; input gene vectors not included",
+        "license": "Repository code license not verified; preserve attribution",
+        "label": "作者绘图代码",
+        "kind": "repository_code"
+      }
+    ],
+    "note": "Seven region counts follow the paper; identities of synthetic genes are invented, not author gene lists.",
+    "example_label": "MCP 模拟基因示例",
+    "example_note": "Only the seven region sizes correspond to Fig. 6A; gene identifiers are synthetic.",
+    "id": "BK38",
+    "title": "NC同款三集合基因韦恩图",
+    "category_id": "bulk",
+    "category": "bulk转录组",
+    "category_ids": [
+      "bulk"
+    ],
+    "entry_kind": "method",
+    "capability_status": "direct_render",
+    "capability_label": "可直接绘图",
+    "capability_note": "已有验证过的绘图入口；校验自己的输入后可调用 render_plot。",
+    "runnable": true,
+    "description": "三个基因列表的七区域韦恩图；采用 Chu et al. Fig. 6A 的 Pastel2 配色，以模拟基因 ID 演示论文公开的区域计数。",
+    "citation": {
+      "title": "Metabolism archetype cancer cells induce protumor TREM2+ macrophages via oxLDL-mediated metabolic interplay in hepatocellular carcinoma",
+      "journal": "Nature Communications",
+      "doi": "10.1038/s41467-025-62132-y",
+      "url": "https://doi.org/10.1038/s41467-025-62132-y",
+      "published_online": "2025",
+      "verification": "Local PDF Fig. 6A and repository Venn_diagram.R checked; exact 73 gene identifiers absent from archived snippet"
+    },
+    "tags": [
+      "韦恩图",
+      "Venn",
+      "三集合",
+      "基因交集",
+      "Fig6A",
+      "KEGG metabolism",
+      "bulk RNA-seq"
+    ],
+    "aliases": [
+      "三集合韦恩图",
+      "Fig 6A Venn",
+      "three set Venn",
+      "Fig. 6A 左侧三集合基因韦恩图"
+    ],
+    "required": {
+      "memberships": [
+        "set",
+        "member"
+      ]
+    },
+    "tutorial": {
+      "title": "Chu et al. 2025 Fig. 6A left three-set Venn",
+      "url": "https://github.com/Cthfudan/hcc/blob/main/Fig6%26S11/Venn_diagram.R",
+      "author": "Chu et al. (paper code repository)"
+    },
+    "implementation_origin": "CODEX_ADAPTED",
+    "implementation_role": "Chu et al. paper author plotting snippet plus local synthetic reproduction",
+    "agent_prompt": "使用 BK38 绘制 NC同款三集合基因韦恩图。先读取 guide，提供 memberships 表（set、member，恰好 3 个集合），校验后绘图。若使用内置示例，应明确说明基因 ID 为模拟数据，只有七个区域计数对应论文图；不得称为作者原始基因列表。默认不加标题或图注。",
+    "display_ids": {
+      "bulk": "BK38"
+    },
+    "display_id": "BK38",
+    "plot_group_ids": {
+      "bulk": [
+        "venn"
+      ]
+    },
+    "image_aspect": 1.369128,
+    "image_sha256": "234e028fd1eae5fe057d3a307319280fc95165784723df63feb45c1edf267af3"
   }
 ]
