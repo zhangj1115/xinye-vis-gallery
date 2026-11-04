@@ -29,6 +29,18 @@
 
 ## 安装
 
+### 直接交给 AI Agent 安装
+
+将下面整段发给你正在使用的 **Codex、Claude Code、ZCode 或 WorkBuddy AI**。也可以在[安装指南](https://zhangj1115.github.io/xinye-vis-gallery/guide.html)选择客户端后，一键复制对应提示词。
+
+```text
+请在我的电脑上安装并接入新叶绘图 xinye-vis-mcp，接入到你当前运行的客户端（Codex、Claude Code、ZCode 或 WorkBuddy AI）。安装包：https://github.com/zhangj1115/xinye-vis-gallery/releases/download/v0.8.0/xinye-vis-mcp-0.8.0.zip
+
+请先确认我的操作系统、现有 MCP 配置位置，以及 uv、Rscript 是否可用。下载上述专用 ZIP，核对同一 Release 的 .sha256，在我选择的长期目录解压。按照包内 README 和对应平台的 install.sh / install.ps1 安装依赖，并运行 BK13 示例。读取安装程序生成的 config/mcp-client.json（WorkBuddy AI 可用 config/workbuddy.mcp.json），从中取得本机绝对路径；按当前客户端支持的 MCP 配置格式加入名为 xinye-vis-mcp 的 stdio 服务，保留已有服务。Claude Code 请先核对当前官方 MCP 配置方式；ZCode 和 WorkBuddy AI 请核对当前版本的配置入口。不要猜测配置文件位置，也不要使用别人的绝对路径。重连客户端后，调用 check_environment、list_methods 和 render_example(BK13) 验证。最后告诉我安装目录、改动的配置文件、验证结果与如何使用。
+```
+
+Agent 首次安装需要下载 Python / R 依赖。若当前 Agent 没有本机文件或终端权限，让它给出需由你执行的具体步骤，再继续配置和验证。
+
 1. 从 [Releases](https://github.com/zhangj1115/xinye-vis-gallery/releases/latest) 下载 **`xinye-vis-mcp-0.8.0.zip`**，解压到长期保留的目录。GitHub 自动提供的 “Source code” 是图册仓库，**安装 MCP 请用上述专用 ZIP**。
 2. 安装 [uv](https://docs.astral.sh/uv/getting-started/installation/) 和 [R 4.6.x](https://cran.r-project.org/)，确保终端能找到 `uv` 与 `Rscript`。Python 3.11 由 uv 准备。
 3. 在解压后的 `xinye-vis-mcp` 目录运行安装脚本。首次安装会按 uv / renv 锁文件联网恢复依赖。
@@ -62,6 +74,7 @@ XINYE_VIS_ROOT = "/你的安装目录/xinye-vis-mcp"
 XINYE_RSCRIPT = "/你的R安装路径/Rscript"
 ```
 
+- **Claude Code**：读取生成配置中的服务字段，按当前版本官方文档接入 stdio MCP 服务，重启会话后调用工具验证。
 - **ZCode / 其他 stdio 客户端**：将生成配置中的服务字段合并到客户端 MCP 设置；ZCode 使用 `mcp.servers.xinye-vis-mcp`。Windows 的 Python 路径为 `.venv\Scripts\python.exe`，以安装程序生成的值为准。
 
 保存后重连 MCP，再对 Agent 说：

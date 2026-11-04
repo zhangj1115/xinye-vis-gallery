@@ -3,7 +3,7 @@
   "files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "CHANGELOG.md": "a3ee57f8472a766f37310a8717f82843dc8fe3025d0d347c2134a3070f5bba0a",
-    "README.md": "95bf5d02aa2b02c5301b9982fb51b69577770779345dc95ff557dca915f574c9",
+    "README.md": "8952bcb9152a946a859fe084a338c332e33fd65665905f4ddf51d4f0a3d4d98a",
     "accordion-preview.html": "7d1737336c7bf455d12f219d3e43f6620c78ab41b3547f3d80ca84413af5100a",
     "assets/examples/BK01.png": "0fcdf7da1f1810738ce6b9bec062f032abe45c6b57c446d07d58f0caffc85257",
     "assets/examples/BK02.png": "78a22370fa84aa5df1742b94c37c58e43be7a796211cab965ede8bd2bc65b930",
@@ -192,7 +192,7 @@
     "assets/originals/X04.png": "823b5fcab0653db2530a09958fc1a6a77ad54933552e36c3e58433fbf7c1672f",
     "assets/originals/X10.gif": "cbaf5e1e891ae23dcd62579c73fd16dfe833105ac7aa7d256f3e8da6fadd00e7",
     "build-report.json": "e30bd7fbf5beb0ded9c1a29b59018078ec08143f5ead6b1ed543248f6c530c32",
-    "guide.html": "ed2116cac289b426b9659749fc2bc46b774e19c586eb41c36a414923ab9cadea",
+    "guide.html": "8e1f55fbda2ee688e3c77de94dadbef917eb4eb86740b6db1de170ef5cc89871",
     "index.html": "b1a6d87e46e2940b03fbf6745c19ca604167148a75431b831c1dc81a4dac6877",
     "recipes/BK02.html": "2ddfbf484b1b1710b95853566299ee06137c4b60f564c2073df02ad90648c28e",
     "recipes/BK03.html": "7ed6882dc9e7c447166b6fc80594fba7e4c5e401da839a464aa5ce6a8df6ae83",
